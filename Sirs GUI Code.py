@@ -129,3 +129,5 @@ app = QApplication(sys.argv)
 window = My_UI()
 app.exec_()
 sys.exit(app.exec_())
+tgtg
+gt
