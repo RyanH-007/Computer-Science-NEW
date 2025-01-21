@@ -13,13 +13,13 @@ class My_UI(QMainWindow):
 
         super(My_UI,self).__init__() # call constrcutor of parent class
         
-        uic.loadUi("mainwindow.ui",self)
+        uic.loadUi("mainwindow.ui",self)    
 
         self.heading = self.findChild(QLabel,"lbl_heading")
         self.buttonAdd = self.findChild(QPushButton,"add_btn")
+        self.buttonRyan = self.findChild(QPushButton,"ryan_btn")
         self.buttonDelete = self.findChild(QPushButton,"del_btn")
         self.buttonDelete.setEnabled(False) # disable delete button
-
         self.comboBox1 = self.findChild(QComboBox,"cmb_one")
         self.listWidget  = self.findChild(QListWidget,"lst_widget")
         self.txtBrowser = self.findChild(QTextBrowser,"txt_browser_one")
@@ -33,7 +33,7 @@ class My_UI(QMainWindow):
 
         """ set event handlers """
         self.buttonAdd.clicked.connect(self.add_btn_clicked)
-        self.buttonRyan.clicked.connect(self.add_btn_clicked)
+        self.buttonRyan.clicked.connect(self.ryan_btn_clicked)
         self.buttonDelete.clicked.connect(self.del_btn_clicked)
         self.listWidget.clicked.connect(self.listwidget_clicked)
         self.lwModel = self.listWidget.model()                             # need to pick up events on the list
@@ -93,6 +93,10 @@ class My_UI(QMainWindow):
         #endif
 
     #end def
+
+
+    def ryan_btn_clicked(self):
+        
 
 
     def showCompleteMessage(self, message_text):
