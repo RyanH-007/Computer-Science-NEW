@@ -33,6 +33,7 @@ class My_UI(QMainWindow):
 
         """ set event handlers """
         self.buttonAdd.clicked.connect(self.add_btn_clicked)
+        self.buttonRyan.clicked.connect(self.add_btn_clicked)
         self.buttonDelete.clicked.connect(self.del_btn_clicked)
         self.listWidget.clicked.connect(self.listwidget_clicked)
         self.lwModel = self.listWidget.model()                             # need to pick up events on the list
