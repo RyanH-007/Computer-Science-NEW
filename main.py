@@ -59,7 +59,7 @@ class My_UI(QMainWindow):
 
     def checkListLength(self):
 
-        if self.listWidget.count() > 0: 
+        if self.listWidget.count() > 0:
             self.buttonDelete.setEnabled(True) # disable delete button
         else:
             self.buttonDelete.setEnabled(False)
@@ -99,7 +99,7 @@ class My_UI(QMainWindow):
         msg = QMessageBox()
         msg.setStyleSheet("background-color: rgb(200, 200, 0); color rgb(255, 200, 0)")
         msg.setIcon(QMessageBox.Information)
-        msg.setText("Have a Nice Day!")
+        msg.setText("Ryan is great !!")
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec_()
 
