@@ -87,7 +87,7 @@ class My_UI(QMainWindow):
 
             self.buttonAdd.setEnabled(False)
             self.labelProgressComplete.setHidden(False)                                 # show full label
-            self.progBar.setEnabled(False)                                              # disable prgress bar
+            self.progBar.setEnabled(False)                                              # disable progress bar
             self.showCompleteMessage("Progress Complete")
 
         #endif
@@ -97,11 +97,13 @@ class My_UI(QMainWindow):
 
     def ryan_btn_clicked(self):
         msg = QMessageBox()
-        msg.setStyleSheet("background-color: rgb(200, 200, 0); color rgb(255, 200, 0)")
+        msg.setStyleSheet("background-color: rgb(58, 126, 190); color rgb(46, 122, 194)")
         msg.setIcon(QMessageBox.Information)
         msg.setText("Ryan is great !!")
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec_()
+        exit()
+    #enddef
 
 
     def showCompleteMessage(self, message_text):
