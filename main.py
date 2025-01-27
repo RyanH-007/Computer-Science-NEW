@@ -109,7 +109,6 @@ class My_UI(QMainWindow):
         msg.setText("Ryan is great !!")
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec_()
-        exit()
     #enddef
 
 
