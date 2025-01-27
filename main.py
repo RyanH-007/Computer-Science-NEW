@@ -1,6 +1,6 @@
 import sys, time
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, \
+from PyQt5.QtWidgets import QApplication, QMainWindow, QSecondWindow, QPushButton, \
     QLabel, QTextBrowser, QComboBox, QListWidget, QProgressBar, QMessageBox, QDialogButtonBox
 from PyQt5 import uic
 from datetime import datetime
@@ -8,7 +8,9 @@ from datetime import datetime
 TIME_LIMIT = 100
 
 class My_UI(QMainWindow):
-
+    def openNewWindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SecondWindow()   
     def __init__(self):
 
         super(My_UI,self).__init__() # call constrcutor of parent class
