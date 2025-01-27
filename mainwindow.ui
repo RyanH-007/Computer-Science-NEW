@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>780</width>
-    <height>466</height>
+    <width>734</width>
+    <height>477</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -96,6 +96,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="muscle_btn">
+         <property name="text">
+          <string>Muscle</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="del_btn">
          <property name="text">
           <string>&amp;Delete</string>
@@ -169,7 +176,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>780</width>
+     <width>734</width>
      <height>26</height>
     </rect>
    </property>

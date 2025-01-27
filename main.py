@@ -1,6 +1,6 @@
 import sys, time
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QApplication, QMainWindow, QSecondWindow, QPushButton, \
+from PyQt5.QtWidgets import QApplication, QMainWindow,QPushButton, \
     QLabel, QTextBrowser, QComboBox, QListWidget, QProgressBar, QMessageBox, QDialogButtonBox
 from PyQt5 import uic
 from datetime import datetime
@@ -9,8 +9,7 @@ TIME_LIMIT = 100
 
 class My_UI(QMainWindow):
     def openNewWindow(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_SecondWindow()   
+        self.window = QtWidgets.QMainWindow()  
     def __init__(self):
 
         super(My_UI,self).__init__() # call constrcutor of parent class
@@ -26,6 +25,7 @@ class My_UI(QMainWindow):
         self.listWidget  = self.findChild(QListWidget,"lst_widget")
         self.txtBrowser = self.findChild(QTextBrowser,"txt_browser_one")
         self.progBar = self.findChild(QProgressBar, "progbar_one")
+        self.buttonMuscle = self.findChild(QPushButton, "muscle_btn")
 
         self.progBar.setMaximum(100)
         self.progBar.setValue(50)
@@ -40,11 +40,16 @@ class My_UI(QMainWindow):
         self.listWidget.clicked.connect(self.listwidget_clicked)
         self.lwModel = self.listWidget.model()                             # need to pick up events on the list
         self.lwModel.rowsInserted.connect(self.checkListLength)            # Any time an element is added run function
-        self.lwModel.rowsRemoved.connect(self.checkListLength)             # Any time an element is removed run function
+        self.lwModel.rowsRemoved.connect(self.checkListLength)
+        self.buttonMuscle.clicked.connect(self.muscle_btn_clicked)
+                  # Any time an element is removed run function
 
         self.show()
     
     #end def
+
+    def muscle_btn_clicked(self):
+        uic.loadUi("secondwindow.ui",self)
 
 
     def listwidget_clicked(self):
