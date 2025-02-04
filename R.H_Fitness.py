@@ -33,4 +33,4 @@ class Fitness_UI(QMainWindow):
         self.gym_title = self.findChild(QLabel,"g_s_title_lbl")
         self.heart_title = self.findChild(QLabel,"h_h_title_lbl")
         self.bmi_title = self.findChild(QLabel,"bmi_title_lbl")
-        
+                
