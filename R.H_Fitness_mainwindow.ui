@@ -10,6 +10,12 @@
     <height>761</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1042</width>
+    <height>761</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
     <width>1042</width>
@@ -62,30 +68,6 @@
     </property>
     <property name="text">
      <string>Quote of the day: “It is never too late to be what you might have been.”</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="welcome_msg_lbl">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>220</y>
-      <width>371</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Welcome to R.H Fitness, which section of our platform would you like to choose?Click on your desired section below:</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-    <property name="wordWrap">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QFrame" name="g_s_frame">

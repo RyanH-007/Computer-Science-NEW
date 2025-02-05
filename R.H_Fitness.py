@@ -26,11 +26,29 @@ class Fitness_UI(QMainWindow):
         
         self.title = self.findChild(QLabel,"title_lbl")
         self.quote = self.findChild(QLabel,"quote_lbl")
-        self.welcomeMessage = self.findChild(QLabel,"welcome_msg_lbl")
         self.gym_frame = self.findChild(QFrame,"g_s_frame")
         self.heart_frame = self.findChild(QFrame,"h_h_frame")
         self.bmi_frame = self.findChild(QFrame,"bmi_frame")
         self.gym_title = self.findChild(QLabel,"g_s_title_lbl")
         self.heart_title = self.findChild(QLabel,"h_h_title_lbl")
         self.bmi_title = self.findChild(QLabel,"bmi_title_lbl")
-                
+        self.gym_button = self.findChild(QPushButton, "g_s_btn")
+        self.heart_button = self.findChild(QPushButton, "h_h_btn")
+        self.bmi_button = self.findChild(QPushButton, "bmi_btn")
+
+        ##  setting event handlers
+
+        self.gym_button.clicked.connect(self.g_s_btn_clicked)
+        #self.heart_button.clicked.connect(self.h_h_btn_clicked)
+        #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
+
+        
+        self.show()
+
+def g_s_btn_clicked(self):
+    uic.loadUi("R.H_Fitness_g_s_window.ui",self)
+
+app = QApplication(sys.argv)
+window = Fitness_UI()
+app.exec_()
+sys.exit(app.exec_())
