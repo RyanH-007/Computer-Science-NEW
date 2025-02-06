@@ -45,8 +45,8 @@ class Fitness_UI(QMainWindow):
         
         self.show()
 
-def g_s_btn_clicked(self):
-    uic.loadUi("R.H_Fitness_g_s_window.ui",self)
+    def g_s_btn_clicked(self):
+        uic.loadUi("R.H_Fitness_g_s_window.ui",self)
 
 app = QApplication(sys.argv)
 window = Fitness_UI()
