@@ -7,7 +7,7 @@
 import sys 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow,QWidget,QPushButton, \
-    QLabel, QFrame
+    QLabel, QFrame, QTabWidget
 from PyQt5 import uic
 
 ## Defining my class 'Fitness_UI' to inherit from QMainWindow
@@ -35,8 +35,10 @@ class Fitness_UI(QMainWindow):
         self.gym_button = self.findChild(QPushButton, "g_s_btn")
         self.heart_button = self.findChild(QPushButton, "h_h_btn")
         self.bmi_button = self.findChild(QPushButton, "bmi_btn")
-
-        ##  setting event handlers
+        self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget")
+       
+        
+               ##  setting event handlers
 
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
         #self.heart_button.clicked.connect(self.h_h_btn_clicked)
@@ -45,8 +47,10 @@ class Fitness_UI(QMainWindow):
         
         self.show()
 
+    ## defining the function for gym section clicked    
     def g_s_btn_clicked(self):
         uic.loadUi("R.H_Fitness_g_s_window.ui",self)
+
 
 app = QApplication(sys.argv)
 window = Fitness_UI()
