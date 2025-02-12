@@ -36,6 +36,8 @@ class Fitness_UI(QMainWindow):
         self.heart_button = self.findChild(QPushButton, "h_h_btn")
         self.bmi_button = self.findChild(QPushButton, "bmi_btn")
         self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget")
+        self.template_tab_widget = self.findChild(QtWidgets.QTabWidget, "template_tab_wdgt")
+        self.shoulders_button = self.findChild(QPushButton, "shoulders_btn")
        
         
                ##  setting event handlers
@@ -43,6 +45,7 @@ class Fitness_UI(QMainWindow):
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
         #self.heart_button.clicked.connect(self.h_h_btn_clicked)
         #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
+        self.shoulders_button.clicked.connect(self.load_shoulders)
 
         
         self.show()
@@ -50,6 +53,16 @@ class Fitness_UI(QMainWindow):
     ## defining the function for gym section clicked    
     def g_s_btn_clicked(self):
         uic.loadUi("R.H_Fitness_g_s_window.ui",self)
+
+    def load_shoulders(self):
+        shoulders_tab = QtWidgets.TabWidget()
+        uic.loadUi("shoulders_tab_widget.ui", shoulders_tab)
+
+        self.template_tab_widget.setParent(None)
+        self.template_tab_widegt = shoulders_tab
+
+        self.layout().addWidget(self.template_tab_widget)
+
 
 
 app = QApplication(sys.argv)

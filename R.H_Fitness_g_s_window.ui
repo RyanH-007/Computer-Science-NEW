@@ -29,16 +29,16 @@
    <widget class="QLabel" name="g_w_title_lbl">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>472</x>
       <y>50</y>
-      <width>351</width>
-      <height>71</height>
+      <width>381</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Georgia</family>
-      <pointsize>36</pointsize>
+      <pointsize>40</pointsize>
      </font>
     </property>
     <property name="text">
@@ -63,13 +63,13 @@
      <string>Select a muscle to exercise:</string>
     </property>
    </widget>
-   <widget class="QTabWidget" name="g_s_tab_widget">
+   <widget class="QTabWidget" name="muscle_figure_tab_widget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>200</y>
+      <y>201</y>
       <width>691</width>
-      <height>721</height>
+      <height>680</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -79,9 +79,9 @@ border-color: rgb(24, 24, 24);
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="sh_exercise_1">
+    <widget class="QWidget" name="front">
      <attribute name="title">
       <string>Front</string>
      </attribute>
@@ -99,7 +99,7 @@ border-color: rgb(24, 24, 24);
 background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>Hand's Grip</string>
+       <string>Hand Grip</string>
       </property>
      </widget>
      <widget class="Line" name="abs_line">
@@ -121,8 +121,11 @@ background-color: rgb(255, 255, 255);</string>
         <x>373</x>
         <y>380</y>
         <width>180</width>
-        <height>20</height>
+        <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -251,25 +254,6 @@ background-color: rgb(255, 255, 255);</string>
        <string>Chest</string>
       </property>
      </widget>
-     <widget class="QLabel" name="muscle_figure_lbl">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>40</y>
-        <width>340</width>
-        <height>586</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../../Pictures/muscle_figure.png</pixmap>
-      </property>
-     </widget>
      <widget class="QPushButton" name="quads_btn">
       <property name="geometry">
        <rect>
@@ -347,7 +331,26 @@ background-color: rgb(255, 255, 255);</string>
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <zorder>muscle_figure_lbl</zorder>
+     <widget class="QLabel" name="muscle_fig_front_lbl">
+      <property name="geometry">
+       <rect>
+        <x>168</x>
+        <y>40</y>
+        <width>340</width>
+        <height>586</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Pictures/muscle_figure_front.png</pixmap>
+      </property>
+     </widget>
+     <zorder>muscle_fig_front_lbl</zorder>
      <zorder>hands_btn</zorder>
      <zorder>abs_line</zorder>
      <zorder>quads_line</zorder>
@@ -365,9 +368,288 @@ background-color: rgb(255, 255, 255);</string>
      <zorder>abductors_line</zorder>
      <zorder>chest_line</zorder>
     </widget>
-    <widget class="QWidget" name="sh_exercise_2">
+    <widget class="QWidget" name="back">
      <attribute name="title">
       <string>Back</string>
+     </attribute>
+     <widget class="QLabel" name="muscle_fig_back_lbl">
+      <property name="geometry">
+       <rect>
+        <x>169</x>
+        <y>37</y>
+        <width>340</width>
+        <height>586</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Pictures/muscle_figure_back.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="traps_btn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>130</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Traps</string>
+      </property>
+     </widget>
+     <widget class="Line" name="traps_line">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>140</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="upper_back_btn">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>150</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Upper Back</string>
+      </property>
+     </widget>
+     <widget class="Line" name="upper_back_line">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>164</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="lats_btn">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>214</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Lats</string>
+      </property>
+     </widget>
+     <widget class="Line" name="lats_line">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>224</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="lower_back_btn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>258</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Lower Back</string>
+      </property>
+     </widget>
+     <widget class="Line" name="lower_back_line">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>271</y>
+        <width>201</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="glutes_btn">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>300</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Glutes</string>
+      </property>
+     </widget>
+     <widget class="Line" name="lats_line_2">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>310</y>
+        <width>181</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="hamsrtring_btn">
+      <property name="geometry">
+       <rect>
+        <x>541</x>
+        <y>380</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Hamstrings</string>
+      </property>
+     </widget>
+     <widget class="Line" name="hamstring_line">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>390</y>
+        <width>170</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="calves_btn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>460</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Calves</string>
+      </property>
+     </widget>
+     <widget class="Line" name="calves_btn_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>470</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="triceps_btn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>190</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Triceps</string>
+      </property>
+     </widget>
+     <widget class="Line" name="triceps_line">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>200</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QTabWidget" name="template_tab_wdgt">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>200</y>
+      <width>671</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
      </attribute>
     </widget>
    </widget>
