@@ -79,7 +79,7 @@ border-color: rgb(24, 24, 24);
 </string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="front">
      <attribute name="title">

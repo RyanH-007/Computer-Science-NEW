@@ -19,7 +19,7 @@ class Fitness_UI(QMainWindow):
     ## Constructor for the class, which initialises an object's state 
     def __init__(self):
 
-        super(Fitness_UI,self).__init__() # call constrcutor of parent class
+        super(Fitness_UI,self).__init__() # call constrcutor of parent class         #AI
 
         ##Loads the xml file and converts into readable python
         uic.loadUi("R.H_Fitness_mainwindow.ui",self)  
@@ -35,9 +35,7 @@ class Fitness_UI(QMainWindow):
         self.gym_button = self.findChild(QPushButton, "g_s_btn")
         self.heart_button = self.findChild(QPushButton, "h_h_btn")
         self.bmi_button = self.findChild(QPushButton, "bmi_btn")
-        self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget")
-        self.template_tab_widget = self.findChild(QtWidgets.QTabWidget, "template_tab_wdgt")
-        self.shoulders_button = self.findChild(QPushButton, "shoulders_btn")
+        
        
         
                ##  setting event handlers
@@ -45,24 +43,52 @@ class Fitness_UI(QMainWindow):
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
         #self.heart_button.clicked.connect(self.h_h_btn_clicked)
         #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
-        self.shoulders_button.clicked.connect(self.load_shoulders)
-
+       
         
         self.show()
 
     ## defining the function for gym section clicked    
-    def g_s_btn_clicked(self):
-        uic.loadUi("R.H_Fitness_g_s_window.ui",self)
+    def g_s_btn_clicked(self): #AI
+        uic.loadUi("R.H_Fitness_g_s_window.ui",self) #AI
 
-    def load_shoulders(self):
-        shoulders_tab = QtWidgets.TabWidget()
-        uic.loadUi("shoulders_tab_widget.ui", shoulders_tab)
+        self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget") #AI
+        self.template_tab_widget = self.findChild(QtWidgets.QTabWidget, "template_tab_wdgt") #AI
+        self.shoulders_button = self.findChild(QPushButton, "shoulders_btn") #AI
 
-        self.template_tab_widget.setParent(None)
-        self.template_tab_widegt = shoulders_tab
+        self.shoulders_button.clicked.connect(self.load_shoulders) #AI
 
-        self.layout().addWidget(self.template_tab_widget)
 
+
+
+    def load_shoulders(self): #AI
+        try: #AI
+
+            shoulders_tab = QtWidgets.QMainWidnow() #AI
+            uic.loadUi("shoulders_tab_widget.ui", shoulders_tab) #AI
+
+            if self.template_tab_widget is None: #AI
+                print("Error: self.template_tab_widget is None") #AI
+                return #AI
+
+            #       shoulders_tab.setParent(self.template_tab_widget.parentWidget()) #AI
+            self.template_tab_widget.deleteLater() #AI
+            self.template_tab_widget = shoulders_tab #AI
+
+            
+            if not self.layout(): #AI
+                print("setting a new layout") #AI
+                self.setLayout(QtWidgets.QVBoxLayout()) #AI
+
+            print("Adding widget to layout") #AI
+            self.layout().addWidget(self.template_tab_widget) #AI
+
+        except Exception as e: #AI
+            print("Error loading shoulders tab:", str(e)) #AI
+
+
+
+import os #AI
+print(os.path.exists("shoulders_tab_widget.ui")) #AI
 
 
 app = QApplication(sys.argv)
