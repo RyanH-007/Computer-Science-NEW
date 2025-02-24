@@ -63,29 +63,72 @@ class Fitness_UI(QMainWindow):
     def load_shoulders(self): #AI
         try: #AI
 
-            shoulders_tab = QtWidgets.QMainWidnow() #AI
+            shoulders_window = QtWidgets.QMainWindow() #AI
             uic.loadUi("shoulders_tab_widget.ui", shoulders_tab) #AI
 
-            if self.template_tab_widget is None: #AI
-                print("Error: self.template_tab_widget is None") #AI
-                return #AI
 
-            #       shoulders_tab.setParent(self.template_tab_widget.parentWidget()) #AI
-            self.template_tab_widget.deleteLater() #AI
-            self.template_tab_widget = shoulders_tab #AI
+            shoulders_tab = shoulders_window.centralWidget()
+            if shoulders_tab is None:
+                print("Error: central widget is not found in shoulders_window")
+                return
+
+
+            parent_layout.removeWidget(self.template_tab_widget)
+            parent_layout.removeWidget(self.template_tab_widget)
+            self.template_tab_widget.deleteLater()
+            self.template_tab_widget = shoulders_tab
+            parent_layout.addWidget(self.template_tab_widget)
+
+            #parent_layout = self.template_tab_widget.parentWidget().layout()  #AI
+            #if parent_layout is None:  #AI
+                #print("Error: Parent layout is None") #AI
+                #return #AI
+
+            # AI - Remove the existing template tab widget
+            #parent_layout.removeWidget(self.template_tab_widget) #AI
+            #self.template_tab_widget.deleteLater() #AI
+
+            # Replace it with the new shoulders_tab
+            #self.template_tab_widget = shoulders_tab #AI
+            #parent_layout.addWidget(self.template_tab_widget) #AI
+
+            #print("Successfully replaced template_tab_widget with shoulders_tab") #AI
+
+        #except Exception as e:  #AI
+            #print("Error loading shoulders tab:" , str(e))  #AI
+
+            if self.template_tab_widget is None: #AI
+                print("Error: self.template_tab_widget is None")  #AI
+                return  #AI
+
+            parent_widget = self.template_tab_widget.parentWidget()  #AI
+
+            if parent_widget is None:  #AI
+                print("Error: Template tab widget has no parent!")  #AI
+                return  #AI
+
+        # Get the parent layout
+            parent_layout = parent_widget.layout()  #AI
+
+        # If there's no layout, create a new one
+            if parent_layout is None:  #AI
+                print("No layout found, creating a new QVBoxLayout")  #AI
+                parent_layout = QtWidgets.QVBoxLayout()  #AI
+                parent_widget.setLayout(parent_layout)  #AI
+
+            parent_layout.removeWidget(self.template_tab_widget)  #AI
+            self.template_tab_widget.deleteLater()  #AI
+
+        # Replace with shoulders_tab
+            self.template_tab_widget = shoulders_tab  #AI
+            parent_layout.addWidget(self.template_tab_widget)  #AI
+
+            print("Successfully replaced template_tab_widget with shoulders_tab")  #AI
+
+        except Exception as e:  #AI
+            print("Error loading shoulders tab:", str(e))  #AI
 
             
-            if not self.layout(): #AI
-                print("setting a new layout") #AI
-                self.setLayout(QtWidgets.QVBoxLayout()) #AI
-
-            print("Adding widget to layout") #AI
-            self.layout().addWidget(self.template_tab_widget) #AI
-
-        except Exception as e: #AI
-            print("Error loading shoulders tab:", str(e)) #AI
-
-
 
 import os #AI
 print(os.path.exists("shoulders_tab_widget.ui")) #AI
