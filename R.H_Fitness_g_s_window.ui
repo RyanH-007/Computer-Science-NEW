@@ -69,7 +69,7 @@
       <x>10</x>
       <y>201</y>
       <width>691</width>
-      <height>680</height>
+      <height>700</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -636,7 +636,7 @@ background-color: rgb(255, 255, 255);</string>
       <x>710</x>
       <y>200</y>
       <width>671</width>
-      <height>681</height>
+      <height>700</height>
      </rect>
     </property>
     <property name="styleSheet">
