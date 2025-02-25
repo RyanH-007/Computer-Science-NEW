@@ -85,7 +85,6 @@ class Fitness_UI(QMainWindow):
             # Set focus to the new tab
             self.template_tab_widget.setCurrentIndex(current_index)
 
-            print("Successfully replaced the template tab with shoulders tab")
 
         except Exception as e:
             print("Error loading shoulders tab:", str(e))

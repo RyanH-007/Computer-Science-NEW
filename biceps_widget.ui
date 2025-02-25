@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>biceps_widget</class>
+ <widget class="QWidget" name="biceps_widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>671</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <widget class="QTabWidget" name="biceps_tab_widget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-1</y>
+     <width>671</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>671</width>
+     <height>700</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>671</width>
+     <height>700</height>
+    </size>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Exercise 1</string>
+    </attribute>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>40</y>
+       <width>291</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>211</width>
+       <height>71</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>291</width>
+       <height>71</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Hammer Curls</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Exercise 3</string>
+    </attribute>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
