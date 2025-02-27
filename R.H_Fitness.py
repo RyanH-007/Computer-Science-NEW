@@ -43,14 +43,20 @@ class Fitness_UI(QMainWindow):
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
         #self.heart_button.clicked.connect(self.h_h_btn_clicked)
         #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
-        
-        
-        
+
         self.show()
 
-    ## defining the function for gym section clicked    
+
+         ## defining the function for gym section clicked    
     def g_s_btn_clicked(self): #AI
-        uic.loadUi("R.H_Fitness_g_s_window.ui",self) #AI
+        self.gym_window = GymSectionWindow()
+        self.gym_window.show()
+        
+        
+class GymSectionWindow(QMainWindow):
+    def __init__(self):
+        super(GymSectionWindow, self).__init__()
+        uic.loadUi("R.H_Fitness_g_s_window.ui", self)
 
         self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget") #AI
         self.template_tab_widget = self.findChild(QTabWidget, "template_tab_wdgt") #AI
@@ -66,16 +72,12 @@ class Fitness_UI(QMainWindow):
 
         # Example for additional buttons:
     
+    
         
-
-        self.shoulders_button.clicked.connect(self.load_shoulders) #AI
-        
-    def load_shoulders(self):
-        self.load_tab("shoulders_widget.ui", "Shoulders")  # Calls the generic function
-
+    
 
 # this whole func is ai, figure out what it did 
-   
+
     def load_tab(self, ui_filename, tab_name):
         try:
             # Load the requested tab UI as a QWidget
@@ -103,9 +105,6 @@ class Fitness_UI(QMainWindow):
         except Exception as e:
             print(f"Error loading {tab_name} tab:", str(e))
 
-
-        
-        
 
 import os #AI
 print(os.path.exists("shoulders_tab_widget.ui")) #AI
