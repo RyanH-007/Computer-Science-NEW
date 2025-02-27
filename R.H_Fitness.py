@@ -102,7 +102,8 @@ class Fitness_UI(QMainWindow):
             print(f"Error loading {tab_name} tab:", str(e))
 
 
-        print("Does load_shoulders exist?", hasattr(self, "load_shoulders"))
+        
+        
 
 import os #AI
 print(os.path.exists("shoulders_tab_widget.ui")) #AI
