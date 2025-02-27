@@ -57,10 +57,12 @@ class Fitness_UI(QMainWindow):
         self.shoulders_button = self.findChild(QPushButton, "shoulders_btn") #AI
         self.biceps_button = self.findChild(QPushButton, "biceps_btn")
         self.forearms_button = self.findChild(QPushButton, "forearms_btn")
+        self.hand_grip_button = self.findChild(QPushButton, "hands_btn")
         
         self.shoulders_button.clicked.connect(lambda: self.load_tab("shoulders_widget.ui", "Shoulders"))
         self.biceps_button.clicked.connect(lambda: self.load_tab("biceps_widget.ui", "biceps"))
         self.forearms_button.clicked.connect(lambda: self.load_tab("forearms_widget.ui", "forearms"))
+        self.hand_grip_button.clicked.connect(lambda: self.load_tab("hand_grip_widget.ui", "hand_grip"))
 
         # Example for additional buttons:
     
