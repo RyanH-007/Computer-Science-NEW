@@ -207,7 +207,7 @@ background-color: rgb(255, 255, 255);</string>
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QPushButton" name="forearm_btn">
+     <widget class="QPushButton" name="forearms_btn">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -358,7 +358,7 @@ background-color: rgb(255, 255, 255);</string>
      <zorder>forearm_line</zorder>
      <zorder>biceps_btn</zorder>
      <zorder>hands_line</zorder>
-     <zorder>forearm_btn</zorder>
+     <zorder>forearms_btn</zorder>
      <zorder>biceps_line</zorder>
      <zorder>chest_btn</zorder>
      <zorder>quads_btn</zorder>

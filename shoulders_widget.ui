@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>671</width>
-    <height>681</height>
+    <height>700</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>671</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>671</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string/>
@@ -38,7 +50,7 @@
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -78,7 +90,7 @@
       </font>
      </property>
      <property name="text">
-      <string>The front lateral raise trains the front delts. This exercise can be perfromed on a cable machine using the bar in the picture below, or a rope. This can also be performed using dumbells or a singular weight plate.</string>
+      <string>The front lateral raise trains the front delts. This exercise can be perfromed on a cable machine using the bar in the picture below, or a rope. This can also be performed using dumbbells or a singular weight plate.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -142,7 +154,7 @@
       </font>
      </property>
      <property name="text">
-      <string>The side lateral raise trains the side delt. This exercise is best to be performed seated with dumbells with the correct form. This exercise can also be performed while standing with dumbells or single handed on a cable machine.</string>
+      <string>The side lateral raise trains the side delt. This exercise is best to be performed seated with dumbbells with the correct form. This exercise can also be performed while standing with dumbbells or single handed on a cable machine.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

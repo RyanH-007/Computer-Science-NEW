@@ -35,7 +35,7 @@ class Fitness_UI(QMainWindow):
         self.gym_button = self.findChild(QPushButton, "g_s_btn")
         self.heart_button = self.findChild(QPushButton, "h_h_btn")
         self.bmi_button = self.findChild(QPushButton, "bmi_btn")
-        
+       
        
         
                ##  setting event handlers
@@ -43,7 +43,8 @@ class Fitness_UI(QMainWindow):
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
         #self.heart_button.clicked.connect(self.h_h_btn_clicked)
         #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
-       
+        
+        
         
         self.show()
 
@@ -54,17 +55,30 @@ class Fitness_UI(QMainWindow):
         self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget") #AI
         self.template_tab_widget = self.findChild(QTabWidget, "template_tab_wdgt") #AI
         self.shoulders_button = self.findChild(QPushButton, "shoulders_btn") #AI
+        self.biceps_button = self.findChild(QPushButton, "biceps_btn")
+        self.forearms_button = self.findChild(QPushButton, "forearms_btn")
+        
+        self.shoulders_button.clicked.connect(lambda: self.load_tab("shoulders_widget.ui", "Shoulders"))
+        self.biceps_button.clicked.connect(lambda: self.load_tab("biceps_widget.ui", "biceps"))
+        self.forearms_button.clicked.connect(lambda: self.load_tab("forearms_widget.ui", "forearms"))
+
+        # Example for additional buttons:
+    
+        
 
         self.shoulders_button.clicked.connect(self.load_shoulders) #AI
+        
+    def load_shoulders(self):
+        self.load_tab("shoulders_widget.ui", "Shoulders")  # Calls the generic function
 
 
 # this whole func is ai, figure out what it did 
    
-    def load_shoulders(self):
+    def load_tab(self, ui_filename, tab_name):
         try:
-            # Load shoulders tab UI as a QWidget
-            shoulders_tab = QWidget()
-            uic.loadUi("shoulders_widget.ui", shoulders_tab)
+            # Load the requested tab UI as a QWidget
+            new_tab = QWidget()
+            uic.loadUi(ui_filename, new_tab)
 
             # Ensure that template_tab_widget exists and is a QTabWidget
             if not isinstance(self.template_tab_widget, QTabWidget):
@@ -74,22 +88,21 @@ class Fitness_UI(QMainWindow):
             # Get the index of the current tab (assuming it's the one to replace)
             current_index = self.template_tab_widget.currentIndex()
 
-            # If there are no tabs, just add the shoulders tab
+            # If there are no tabs, just add the new tab
             if current_index == -1:
-                self.template_tab_widget.addTab(shoulders_tab, "Shoulders")
+                self.template_tab_widget.addTab(new_tab, tab_name)
+                self.template_tab_widget.setCurrentIndex(0)  # Focus on the new tab
             else:
-                # Replace the current tab with the shoulders tab
+                # Replace the current tab with the new tab
                 self.template_tab_widget.removeTab(current_index)
-                self.template_tab_widget.insertTab(current_index, shoulders_tab,"Shoulders")
-
-            # Set focus to the new tab
-            self.template_tab_widget.setCurrentIndex(current_index)
-
+                self.template_tab_widget.insertTab(current_index, new_tab, tab_name)
+                self.template_tab_widget.setCurrentIndex(current_index)  # Keep focus on the new tab
 
         except Exception as e:
-            print("Error loading shoulders tab:", str(e))
+            print(f"Error loading {tab_name} tab:", str(e))
 
 
+        print("Does load_shoulders exist?", hasattr(self, "load_shoulders"))
 
 import os #AI
 print(os.path.exists("shoulders_tab_widget.ui")) #AI

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>biceps_widget</class>
- <widget class="QWidget" name="biceps_widget">
+ <class>frms_widget</class>
+ <widget class="QWidget" name="frms_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,14 +10,26 @@
     <height>700</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string/>
+  <property name="minimumSize">
+   <size>
+    <width>671</width>
+    <height>700</height>
+   </size>
   </property>
-  <widget class="QTabWidget" name="biceps_tab_widget">
+  <property name="maximumSize">
+   <size>
+    <width>671</width>
+    <height>700</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTabWidget" name="forearms_tab_widget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-1</y>
+     <y>0</y>
      <width>671</width>
      <height>700</height>
     </rect>
@@ -40,92 +52,16 @@
    <property name="currentIndex">
     <number>1</number>
    </property>
-   <widget class="QWidget" name="exercise1">
+   <widget class="QWidget" name="exercise_1">
     <attribute name="title">
      <string>Exercise 1</string>
     </attribute>
-    <widget class="QLabel" name="bi_exercise_1_title_lbl">
+    <widget class="QLabel" name="frms_exercise_1_title_lbl">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>5</y>
-       <width>291</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>211</width>
-       <height>71</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>291</width>
-       <height>71</height>
-      </size>
-     </property>
-     <property name="font">
-      <font>
-       <family>Georgia</family>
-       <pointsize>26</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Hammer Curls</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="bi_exercise_1_msg_lbl">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>381</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Hammer curls train the long head of the bicep, the brachialis (another muscle in the upper arm), and the brachioradialis (one of the key forearm muscles). This can be performed using dumbbells or a rope.  </string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="bi_exercise_1_lbl">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>310</y>
-       <width>430</width>
-       <height>340</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../Pictures/bi_exercise_1.png</pixmap>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="exercise_2">
-    <attribute name="title">
-     <string>Exercise 2</string>
-    </attribute>
-    <widget class="QLabel" name="bi_exercise_2_title_lbl">
-     <property name="geometry">
-      <rect>
-       <x>95</x>
+       <x>225</x>
        <y>10</y>
-       <width>491</width>
+       <width>231</width>
        <height>71</height>
       </rect>
      </property>
@@ -148,14 +84,14 @@
       </font>
      </property>
      <property name="text">
-      <string>Dumbbell Preacher Curls</string>
+      <string>Wrist Curls</string>
      </property>
     </widget>
-    <widget class="QLabel" name="bi_exercise_2_msg_lbl">
+    <widget class="QLabel" name="frms_exercise_1_msg_lbl">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>100</y>
+       <x>23</x>
+       <y>99</y>
        <width>391</width>
        <height>151</height>
       </rect>
@@ -166,7 +102,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Preacher curls train the short head of the bicep and also the brachialis (another muscle in the upper arm). This exercise should be performed on a preacher curl bench with either an EZ bar, or for the best results, single arm wtih dumbbells. </string>
+      <string>Wrist curls train the flexor muscles on the front, and the anterior side of the forearm. This is preferably performed with dumbbells or a straight bar but can be performed with a D handle or straight bar on the cable machine. </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -175,36 +111,96 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="bi_exercise_2_lbl_1">
+    <widget class="QLabel" name="frms_exercise_1_lbl">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>270</y>
-       <width>280</width>
-       <height>389</height>
+       <x>90</x>
+       <y>260</y>
+       <width>491</width>
+       <height>371</height>
       </rect>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Pictures/bi_exercise_2.1.png</pixmap>
+      <pixmap>../../Pictures/forearms_exercise_1.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="bi_exercise_2_lbl_2">
+   </widget>
+   <widget class="QWidget" name="exercise_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
+    <widget class="QLabel" name="frms_exercise_2_title_lbl">
      <property name="geometry">
       <rect>
-       <x>329</x>
-       <y>270</y>
-       <width>280</width>
-       <height>389</height>
+       <x>157</x>
+       <y>10</y>
+       <width>391</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>211</width>
+       <height>71</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1000</width>
+       <height>71</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Reverse Wrist Curls</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="frms_exercise_2_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>391</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Reverse wrist curls trains the extensor muscles on the backside of the forearms. This is prefrerably performed with dumbbells or a straight bar but can also be performed on a cable machine with a D handle or straight bar.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="frms_exercise_2_lbl">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>290</y>
+       <width>631</width>
+       <height>361</height>
       </rect>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Pictures/bi_exercise_2.2.png</pixmap>
+      <pixmap>../../Pictures/frms_exercise_2.png</pixmap>
      </property>
     </widget>
    </widget>
