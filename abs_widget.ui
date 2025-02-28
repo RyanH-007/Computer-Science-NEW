@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>abs_widget</class>
+ <widget class="QWidget" name="abs_widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>671</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <widget class="QTabWidget" name="abs_tab_widget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>671</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="exercise_1">
+    <attribute name="title">
+     <string>Exercise 1</string>
+    </attribute>
+    <widget class="QLabel" name="abs_exercise_1_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>20</y>
+       <width>311</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Cable Crunches</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="abs_exercise_1_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>130</y>
+       <width>401</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Cable crunches, where you start on your knees, grab the rope connecting to the cable high above, and then more your torso down 'crunching' is an effective way at trainig your upper and lower abs.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="abs_exercise_1_lbl">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>308</y>
+       <width>622</width>
+       <height>346</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/abs_exercise_1.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
+    <widget class="QLabel" name="abs_exercise_2_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>182</x>
+       <y>30</y>
+       <width>301</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Russian Twists</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="abs_exercise_2_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>130</y>
+       <width>401</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Russian twists are a great exercise, training the obliques and core. This is performed by keeping your back at a 45 degree angle, keeping your feet slightly raised,  and rotating your arms accros either side of your body while keeping your neck and head facing forward. This can also be performed with a weighted plate in your hand.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="abs_exercise_2_lbl">
+     <property name="geometry">
+      <rect>
+       <x>49</x>
+       <y>360</y>
+       <width>561</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/abs_exercise_2.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
