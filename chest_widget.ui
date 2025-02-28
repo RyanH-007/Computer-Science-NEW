@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>shoulders_widget</class>
- <widget class="QWidget" name="shoulders_widget">
+ <class>chest_widget</class>
+ <widget class="QWidget" name="chest_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,17 +19,17 @@
   <property name="maximumSize">
    <size>
     <width>671</width>
-    <height>16777215</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
    <string/>
   </property>
-  <widget class="QTabWidget" name="shoulders_tab_widget">
+  <widget class="QTabWidget" name="chest_tab_widget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-5</y>
+     <y>0</y>
      <width>671</width>
      <height>700</height>
     </rect>
@@ -52,16 +52,16 @@
    <property name="currentIndex">
     <number>0</number>
    </property>
-   <widget class="QWidget" name="tab">
+   <widget class="QWidget" name="exercise_1">
     <attribute name="title">
      <string>Exercise 1</string>
     </attribute>
-    <widget class="QLabel" name="sh_exercise_1_title_lbl">
+    <widget class="QLabel" name="chest_exercise_1_title_lbl">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>180</x>
        <y>10</y>
-       <width>381</width>
+       <width>311</width>
        <height>71</height>
       </rect>
      </property>
@@ -72,175 +72,207 @@
       </font>
      </property>
      <property name="text">
-      <string>Front Lateral Raise</string>
+      <string>Cable Chest Flys</string>
      </property>
     </widget>
-    <widget class="QLabel" name="sh_exercise_1_msg_lbl">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>120</y>
-       <width>381</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>The front lateral raise trains the front delts. This exercise can be perfromed on a cable machine using the bar in the picture below, or a rope. This can also be performed using dumbbells or a singular weight plate.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="sh_exercise_1_lbl">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>320</y>
-       <width>441</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../Pictures/sh_exercise_1.png</pixmap>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>Exercise 2</string>
-    </attribute>
-    <widget class="QLabel" name="sh_exercise_2_title_lbl">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>13</y>
-       <width>381</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Georgia</family>
-       <pointsize>26</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Side Lateral Raise</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="sh_exercise_2_msg_lbl">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>110</y>
-       <width>381</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>The side lateral raise trains the side delt. This exercise is best to be performed seated with dumbbells with the correct form. This exercise can also be performed while standing with dumbbells or single handed on a cable machine.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="sh_exercise_2_lbl">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>310</y>
-       <width>611</width>
-       <height>321</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../Pictures/sh_exercise_2.png</pixmap>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>Exercise 3</string>
-    </attribute>
-    <widget class="QLabel" name="sh_exercise_3_title_lbl">
-     <property name="geometry">
-      <rect>
-       <x>249</x>
-       <y>10</y>
-       <width>211</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Georgia</family>
-       <pointsize>26</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Face Pulls</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="sh_exercise_2_msg_lbl_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>100</y>
-       <width>381</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Face Pulls train the rear delts. This is performed on the cable machine with a rope.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="sh_exercise_3_lbl">
+    <widget class="QLabel" name="chest_exercise_1_msg_lbl">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>269</y>
-       <width>611</width>
-       <height>321</height>
+       <y>110</y>
+       <width>401</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Cable chest flys starting high up and pushing down, level with the middle of your chest is a very good exercise for developing the lower and middle of your chest. When your hands are about to touch, overlap them and cross over for a better contraction. This can be performed on the peck deck if needed but isn't as optimal.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_1_label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>330</y>
+       <width>621</width>
+       <height>331</height>
       </rect>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Pictures/sh_exercise_3.png</pixmap>
+      <pixmap>../../Pictures/chest_exercise_1.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
+    <widget class="QLabel" name="chest_exercise_2_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>66</x>
+       <y>20</y>
+       <width>521</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Incline Barbell Bench Press </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_2_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>130</y>
+       <width>401</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Incline bench press using a barbell is a very good exercise, primarily targeting the upper chest. When pressing the barbell keep your shoulders tucked in at roughly a 45 degree angle. This exercise is best performed on a smith machine, and the bench being one level higher than flat.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_2_lbl_1">
+     <property name="geometry">
+      <rect>
+       <x>21</x>
+       <y>350</y>
+       <width>311</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/chest_exercise_2.1.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_2_lbl_2">
+     <property name="geometry">
+      <rect>
+       <x>331</x>
+       <y>350</y>
+       <width>301</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/chest_exercise_2.2png.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_3">
+    <attribute name="title">
+     <string>Exercise 3</string>
+    </attribute>
+    <widget class="QLabel" name="chest_exercise_3_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>20</y>
+       <width>101</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Dips</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_3_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>401</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Dips are a great exercise to target the lower chest, long head of triceps, and front delts. This exercise is best performed on a seated dips machine. But this can also be performed on a standing assisted dips machine.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_3_lbl_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>295</y>
+       <width>302</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/chest_exercise_3.1.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="chest_exercise_3_lbl_2">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>300</y>
+       <width>332</width>
+       <height>333</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/chest_exercise_3.2.png</pixmap>
      </property>
     </widget>
    </widget>

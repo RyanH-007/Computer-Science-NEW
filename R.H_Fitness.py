@@ -64,12 +64,26 @@ class GymSectionWindow(QMainWindow):
         self.biceps_button = self.findChild(QPushButton, "biceps_btn")
         self.forearms_button = self.findChild(QPushButton, "forearms_btn")
         self.hand_grip_button = self.findChild(QPushButton, "hands_btn")
-        
+        self.chest_button = self.findChild(QPushButton, "chest_btn")
+        self.abdominals_button = self.findChild(QPushButton, "abs_btn")
+        self.abductors_button = self.findChild(QPushButton, "abductors_btn")
+        self.quadriceps_button = self.findChild(QPushButton, "quads_btn")
+        self.traps_button = self.findChild(QPushButton, "traps_btn")
+        self.triceps_button = self.findChild(QPushButton, "triceps_btn")
+        self.lower_back_button = self.findChild(QPushButton, "lower_back_btn")
+        self.calves_button = self.findChild(QPushButton, "calves_btn")
+        self.upper_back_button = self.findChild(QPushButton, "upper_back_btn")
+        self.lats_button = self.findChild(QPushButton, "lats_btn")
+        self.glutes_button = self.findChild(QPushButton, "glutes_btn")
+        self.hamstrings_button = self.findChild(QPushButton, "hamstring_btn")
+
+
+
         self.shoulders_button.clicked.connect(lambda: self.load_tab("shoulders_widget.ui", "Shoulders"))
         self.biceps_button.clicked.connect(lambda: self.load_tab("biceps_widget.ui", "biceps"))
         self.forearms_button.clicked.connect(lambda: self.load_tab("forearms_widget.ui", "forearms"))
         self.hand_grip_button.clicked.connect(lambda: self.load_tab("hand_grip_widget.ui", "hand_grip"))
-
+        self.chest_button.clicked.connect(lambda: self.load_tab("chest_widget.ui", "chest"))
         # Example for additional buttons:
     
     
