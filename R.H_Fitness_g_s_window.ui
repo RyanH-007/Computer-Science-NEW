@@ -79,7 +79,7 @@ border-color: rgb(24, 24, 24);
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="front">
      <attribute name="title">
@@ -568,7 +568,7 @@ background-color: rgb(255, 255, 255);</string>
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QPushButton" name="calves_btn">
+     <widget class="QPushButton" name="calfs_btn">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -582,7 +582,7 @@ background-color: rgb(255, 255, 255);</string>
 background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>Calves</string>
+       <string>Calfs</string>
       </property>
      </widget>
      <widget class="Line" name="calves_btn_2">
