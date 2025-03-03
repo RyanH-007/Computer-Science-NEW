@@ -75,7 +75,8 @@ class GymSectionWindow(QMainWindow):
         self.upper_back_button = self.findChild(QPushButton, "upper_back_btn")
         self.lats_button = self.findChild(QPushButton, "lats_btn")
         self.glutes_button = self.findChild(QPushButton, "glutes_btn")
-        self.hamstrings_button = self.findChild(QPushButton, "hamstring_btn")
+        self.hamstrings_button = self.findChild(QPushButton, "hamstrings_btn")
+    
 
 
 
@@ -93,6 +94,8 @@ class GymSectionWindow(QMainWindow):
         self.calfs_button.clicked.connect(lambda: self.load_tab("calfs_widget.ui", "calfs"))
         self.upper_back_button.clicked.connect(lambda: self.load_tab("upper_back_widget.ui", "upper back"))
         self.lats_button.clicked.connect(lambda: self.load_tab("lats_widget.ui", "lats"))
+        self.glutes_button.clicked.connect(lambda: self.load_tab("glutes_widget.ui", "glutes"))
+        self.hamstrings_button.clicked.connect(lambda: self.load_tab("hamstrings_widget.ui", "hamstrings")) 
         # Example for additional buttons:
     
     
