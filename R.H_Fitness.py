@@ -91,6 +91,7 @@ class GymSectionWindow(QMainWindow):
         self.triceps_button.clicked.connect(lambda: self.load_tab("triceps_widget.ui", "triceps"))
         self.lower_back_button.clicked.connect(lambda: self.load_tab("lower_back_widget.ui", "lower back"))
         self.calfs_button.clicked.connect(lambda: self.load_tab("calfs_widget.ui", "calfs"))
+        self.upper_back_button.clicked.connect(lambda: self.load_tab("upper_back_widget.ui", "upper back"))
         # Example for additional buttons:
     
     

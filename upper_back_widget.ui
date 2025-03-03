@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>calfs_widget</class>
- <widget class="QWidget" name="calfs_widget">
+ <class>upper_back_widget</class>
+ <widget class="QWidget" name="upper_back_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,10 +16,10 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QTabWidget" name="calfs_tab_widget">
+  <widget class="QTabWidget" name="upper_back_tab_widget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-1</x>
      <y>0</y>
      <width>671</width>
      <height>700</height>
@@ -32,12 +32,12 @@
     <attribute name="title">
      <string>Exercise 1</string>
     </attribute>
-    <widget class="QLabel" name="calf_exercise_1_title_lbl">
+    <widget class="QLabel" name="upper_back_exercise_1_title_lbl">
      <property name="geometry">
       <rect>
-       <x>204</x>
+       <x>160</x>
        <y>20</y>
-       <width>201</width>
+       <width>311</width>
        <height>71</height>
       </rect>
      </property>
@@ -48,16 +48,16 @@
       </font>
      </property>
      <property name="text">
-      <string>Calf raises</string>
+      <string>Bent Over Rows</string>
      </property>
     </widget>
-    <widget class="QLabel" name="calfs_exercise_1_msg_lbl">
+    <widget class="QLabel" name="upper_back_exercise_1_msg_lbl">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>110</y>
        <width>431</width>
-       <height>201</height>
+       <height>221</height>
       </rect>
      </property>
      <property name="font">
@@ -66,7 +66,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Calf raises are a brilliant way to isolate the calfs in an exercise. This performed by having your feet elevated by standing on a platform, then standing up and down on your tip toes, allowing your heels to go past the base level of the platform creating a greater stretch. This can be performed using dumbbells, smith machine, or a calf raise machine.</string>
+      <string>Bent over rows are very good at targeting the upper back. This exercise uses a barbbell and preferably on a smith machine for the best form and ability to do partial reps at the end. This is performed by bending your torso over but keeping your legs straight, grabbing the barbbell with an overhand grip, keeping your back straight, and only using your arms to pull the bar up to your waist.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -75,22 +75,27 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="calf_exercise_1_lbl">
+    <widget class="QLabel" name="upper_back_exercise_1_lbl">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>340</y>
-       <width>331</width>
-       <height>311</height>
+       <x>120</x>
+       <y>360</y>
+       <width>401</width>
+       <height>301</height>
       </rect>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Pictures/calfs_exercise_1.png</pixmap>
+      <pixmap>../../Pictures/upper_back_exercise_1.png</pixmap>
      </property>
     </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
    </widget>
   </widget>
  </widget>
