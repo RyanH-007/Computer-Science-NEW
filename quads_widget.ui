@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>quads_widget</class>
+ <widget class="QWidget" name="quads_widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>671</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <widget class="QTabWidget" name="quads_tab_widget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>671</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="exercise_1">
+    <attribute name="title">
+     <string>Exercise 1</string>
+    </attribute>
+    <widget class="QLabel" name="quads_exercise_1_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>20</y>
+       <width>291</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Leg Extensions</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="quads_exercise_1_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>401</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Leg Extensions are a very effective way at isolating the quads. This is performed by putting your legs behind a bar on the leg extensions machine, and then pushing upwards.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="quads_exercise_1_lbl">
+     <property name="geometry">
+      <rect>
+       <x>63</x>
+       <y>313</y>
+       <width>511</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/quads_exericse_1.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
+    <widget class="QLabel" name="quads_exercise_2_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>20</y>
+       <width>191</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Leg Press</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="quads_exercise_2_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>401</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Leg Press is another great exercise for the quads. This also trains the hamstrings, calves and glutes. This is performed by sitting down or lying down depending on the machine and pushing your legs out.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="quads_exercise_2_lbl_1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>311</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/quads_exercise_2.1.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="quads_exercise_2_lbl_2">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>326</y>
+       <width>331</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/quads_exercise_2.2.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
