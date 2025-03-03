@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>lats_widget</class>
+ <widget class="QWidget" name="lats_widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>671</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QTabWidget" name="lats_tab_widget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>671</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="exercise_1">
+    <attribute name="title">
+     <string>Exercise 1</string>
+    </attribute>
+    <widget class="QLabel" name="lats_exercise_1_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>461</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Wide Grip Lat Pulldown</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lats_exercise_1_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>431</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Wide grip lat pulldowns are very good at tagreting the upper lats effectivley. This is performed by using a wide grip on the lat pulldown bar, keeping a straight back, and pulling down to the middle of your chest.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lats_exercise_1_lbl">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>280</y>
+       <width>401</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/lats_exercise_1.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_2">
+    <attribute name="title">
+     <string>Exercise 2</string>
+    </attribute>
+    <widget class="QLabel" name="lats_exercise_2_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>20</y>
+       <width>481</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Close Grip Lat Pulldowns</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lats_exercise_2_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>431</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Close grip lat pull downs help target the lower lat muscles, and also the upper back. This is performed by using a close grip on the lat pulldown bar, keeping your back straight, and pulling down to the middle of your chest.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lats_exercise_2_lbl">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>290</y>
+       <width>481</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/upper_back_exercise_2.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="exercise_3">
+    <attribute name="title">
+     <string>Exercise 3</string>
+    </attribute>
+    <widget class="QLabel" name="lats_exercise_3_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>20</y>
+       <width>271</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Lat Pull Overs</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lats_exercise_3_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>481</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Lat pull overs are a great way at isolating the lats. This is performed on either a cable or lat pull over machine. If it is a cable machine, put it up high and use a rope or straight bar, grab the rope/bar and bend over form your torso to roughly a  45 degree angle, keep your legs slightly bent and kept in that position, stand far enough back for a good stretch, keep your arms slightly bent and locked in place, and then pull the rope/bar downwards into your wasit. </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lats_exercise_3_lbl">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>350</y>
+       <width>621</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/lats_exercise_3.png</pixmap>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

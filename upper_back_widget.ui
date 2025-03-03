@@ -38,7 +38,7 @@
        <x>160</x>
        <y>20</y>
        <width>311</width>
-       <height>71</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -96,6 +96,65 @@
     <attribute name="title">
      <string>Exercise 2</string>
     </attribute>
+    <widget class="QLabel" name="upper_back_exercise_2_title_lbl">
+     <property name="geometry">
+      <rect>
+       <x>103</x>
+       <y>20</y>
+       <width>481</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Georgia</family>
+       <pointsize>26</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Close Grip Lat Pulldowns</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="upper_back_exercise_2_msg_lbl">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>431</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Close grip lat pull downs help target the upper back muscles, and also the lower lats. This is performed by using a close grip on the lat pulldown bar, keeping your back straight, and pulling down to the middle of your chest.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="upper_back_exercise_2_lbl">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>260</y>
+       <width>481</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/upper_back_exercise_2.png</pixmap>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
