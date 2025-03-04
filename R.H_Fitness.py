@@ -42,7 +42,7 @@ class Fitness_UI(QMainWindow):
 
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
         self.heart_button.clicked.connect(self.h_h_btn_clicked)
-        #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
+        self.bmi_button.clicked.connect(self.bmi_btn_clicked)
 
         self.show()
 
@@ -56,6 +56,55 @@ class Fitness_UI(QMainWindow):
     def h_h_btn_clicked(self):
         self.heart_window = HeartHealthSectionWindow()
         self.heart_window.show()
+    
+    def bmi_btn_clicked(self):
+        self.bmi_window = BMISectionWindow()
+        self.bmi_window.show()
+
+
+class BMISectionWindow(QMainWindow):
+    def __init__(self):
+        super(BMISectionWindow, self).__init__()
+        uic.loadUi("R.H_Fitness_bmi_window.ui", self)
+
+        self.bmi_age_line_edit = self.findChild(QLineEdit, "bmi_age_line_edit")
+        self.bmi_weight_line_edit = self.findChild(QLineEdit, "bmi_weight_line_edit")
+        self.bmi_height_line_edit = self.findChild(QLineEdit, "bmi_height_line_edit")
+
+        self.save_button = self.findChild(QPushButton, "bmi_save_btn")  # Make sure the objectName in Designer is "save_button"
+        self.save_button.clicked.connect(self.save_data)
+
+    def save_data(self):
+        # Gather data from the QLineEdits
+        data = {
+            "age": self.bmi_age_line_edit.text(),
+            "weight": self.bmi_weight_line_edit.text(),
+            "height": self.bmi_height_line_edit.text(),
+        }
+
+        # Write data to a JSON file
+        try:
+            # Define the path for the JSON file
+            file_path = "bmi_data.json"
+            
+            # Check if the file exists; if it does, we will update it; otherwise, we'll create a new one
+            if os.path.exists(file_path):
+                with open(file_path, "r") as file:
+                    existing_data = json.load(file)
+            else:
+                existing_data = {}
+
+            # Update the existing data with the new data
+            existing_data.update(data)
+
+            # Save the updated data back into the JSON file
+            with open(file_path, "w") as file:
+                json.dump(existing_data, file, indent=4)
+
+            print("Data saved successfully.")
+
+        except Exception as e:
+            print(f"Error saving data: {e}")
 
 
 import json
