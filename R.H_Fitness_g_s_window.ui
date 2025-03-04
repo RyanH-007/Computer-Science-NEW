@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="g_w_title_lbl">
+   <widget class="QLabel" name="g_s_title_lbl">
     <property name="geometry">
      <rect>
       <x>472</x>

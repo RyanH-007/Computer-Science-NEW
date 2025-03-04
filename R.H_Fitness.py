@@ -7,7 +7,7 @@
 import sys 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow,QWidget,QPushButton, \
-    QLabel, QFrame, QTabWidget
+    QLabel, QFrame, QTabWidget, QLineEdit
 from PyQt5 import uic
 
 ## Defining my class 'Fitness_UI' to inherit from QMainWindow
@@ -41,7 +41,7 @@ class Fitness_UI(QMainWindow):
                ##  setting event handlers
 
         self.gym_button.clicked.connect(self.g_s_btn_clicked)
-        #self.heart_button.clicked.connect(self.h_h_btn_clicked)
+        self.heart_button.clicked.connect(self.h_h_btn_clicked)
         #self.bmi_button.clicked.connect(self.bmi_btn_clicked)
 
         self.show()
@@ -51,8 +51,67 @@ class Fitness_UI(QMainWindow):
     def g_s_btn_clicked(self): #AI
         self.gym_window = GymSectionWindow()
         self.gym_window.show()
-        
-        
+    
+
+    def h_h_btn_clicked(self):
+        self.heart_window = HeartHealthSectionWindow()
+        self.heart_window.show()
+
+
+import json
+from PyQt5.QtWidgets import QPushButton
+
+
+class HeartHealthSectionWindow(QMainWindow):
+    def __init__(self):
+        super(HeartHealthSectionWindow, self).__init__()
+        uic.loadUi("R.H_Fitness_h_h_window.ui", self)
+
+        self.age_line_edit = self.findChild(QLineEdit, "age_line_edit")
+        self.weight_line_edit = self.findChild(QLineEdit, "weight_line_edit")
+        self.height_line_edit = self.findChild(QLineEdit, "height_line_edit")
+        self.heart_rate_running_line_edit = self.findChild(QLineEdit, "heart_rate_running_line_edit")
+        self.heart_rate_stationary_line_edit = self.findChild(QLineEdit, "heart_rate_stationary_line_edit")
+
+        # Find and connect the "Save" button (you need to add this button in Qt Designer if not already present)
+        self.save_button = self.findChild(QPushButton, "h_h_save_btn")  # Make sure the objectName in Designer is "save_button"
+        self.save_button.clicked.connect(self.save_data)
+
+    def save_data(self):
+        # Gather data from the QLineEdits
+        data = {
+            "age": self.age_line_edit.text(),
+            "weight": self.weight_line_edit.text(),
+            "height": self.height_line_edit.text(),
+            "heart_rate_running": self.heart_rate_running_line_edit.text(),
+            "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
+        }
+
+        # Write data to a JSON file
+        try:
+            # Define the path for the JSON file
+            file_path = "heart_health_data.json"
+            
+            # Check if the file exists; if it does, we will update it; otherwise, we'll create a new one
+            if os.path.exists(file_path):
+                with open(file_path, "r") as file:
+                    existing_data = json.load(file)
+            else:
+                existing_data = {}
+
+            # Update the existing data with the new data
+            existing_data.update(data)
+
+            # Save the updated data back into the JSON file
+            with open(file_path, "w") as file:
+                json.dump(existing_data, file, indent=4)
+
+            print("Data saved successfully.")
+
+        except Exception as e:
+            print(f"Error saving data: {e}")
+
+
 class GymSectionWindow(QMainWindow):
     def __init__(self):
         super(GymSectionWindow, self).__init__()

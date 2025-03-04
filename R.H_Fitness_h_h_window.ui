@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RH_Fitness_h_h_mainwindow</class>
+ <widget class="QMainWindow" name="RH_Fitness_h_h_mainwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1389</width>
+    <height>954</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="h_h_title_lbl">
+    <property name="geometry">
+     <rect>
+      <x>403</x>
+      <y>30</y>
+      <width>631</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Georgia</family>
+      <pointsize>40</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Heart Health Section</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="template_h_h_tab_wdgt">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>400</y>
+      <width>481</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>671</width>
+      <height>700</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="results_tab">
+     <attribute name="title">
+      <string>Results</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="h_h_image_lbl">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>140</y>
+      <width>331</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../Pictures/h_h_heart_image.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="h_h_tab_widget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>401</y>
+      <width>521</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="inputs">
+     <attribute name="title">
+      <string>Biometric Data:</string>
+     </attribute>
+     <widget class="QLabel" name="age_lbl">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>154</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Age:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="age_line_edit">
+      <property name="geometry">
+       <rect>
+        <x>51</x>
+        <y>154</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="weight_lbl">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>204</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Weight:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="weight_line_edit">
+      <property name="geometry">
+       <rect>
+        <x>71</x>
+        <y>204</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="height_lbl">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>254</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Height:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="height_line_edit">
+      <property name="geometry">
+       <rect>
+        <x>71</x>
+        <y>254</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="heart_rate_running_lbl">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>304</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Heart rate while running:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="heart_rate_stationary_lbl">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>344</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Heart rate while stationary:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="heart_rate_running_line_edit">
+      <property name="geometry">
+       <rect>
+        <x>171</x>
+        <y>304</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="heart_rate_stationary_line_edit">
+      <property name="geometry">
+       <rect>
+        <x>181</x>
+        <y>344</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="h_h_msg_inputs_lbl">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>201</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Please enter your biometric data below:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="h_h_save_btn">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>400</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save </string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1389</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
