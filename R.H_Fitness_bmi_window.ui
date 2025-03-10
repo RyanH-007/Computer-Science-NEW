@@ -176,6 +176,45 @@
        <string>Save </string>
       </property>
      </widget>
+     <widget class="QLabel" name="bmi_age_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>173</x>
+        <y>153</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>16 - 100 yrs old</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bmi_weight_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>200</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>kg</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bmi_height_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>253</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>cm</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QTabWidget" name="template_bmi_tab_wdgt">

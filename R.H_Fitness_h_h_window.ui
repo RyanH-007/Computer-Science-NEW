@@ -255,6 +255,71 @@
        <string>Save </string>
       </property>
      </widget>
+     <widget class="QLabel" name="age_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>152</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>16 - 100 yrs old</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="weight_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>202</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>kg</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="height_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>250</y>
+        <width>21</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>cm</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="heart_rate_running_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>303</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>BPM</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="heart_rate_stationary_lbl_2">
+      <property name="geometry">
+       <rect>
+        <x>297</x>
+        <y>343</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>BPM</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

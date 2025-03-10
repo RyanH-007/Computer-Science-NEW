@@ -4,6 +4,9 @@
 
 
 ## Importing the sys to allow access for item-specific parameters and functions 
+import json
+import datetime
+import os
 import sys 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow,QWidget,QPushButton, \
@@ -44,7 +47,33 @@ class Fitness_UI(QMainWindow):
         self.heart_button.clicked.connect(self.h_h_btn_clicked)
         self.bmi_button.clicked.connect(self.bmi_btn_clicked)
 
+        self.update_daily_quote()
+
         self.show()
+
+    def update_daily_quote(self):
+        file_path = "quotes.json"
+        
+        if not os.path.exists(file_path):
+            print("Quote file not found!")
+            return
+        
+        try:
+            # Load quotes from the JSON file
+            with open(file_path, "r") as file:
+                quotes = json.load(file)
+            
+            # Get the current day of the month (1-31)
+            day_of_month = datetime.datetime.now().day
+            
+            # Ensure there are 31 quotes in the list
+            if isinstance(quotes, list) and len(quotes) >= 31:
+                daily_quote = quotes[(day_of_month - 1) % 31]  # Wrap around if needed
+                self.quote.setText(daily_quote)
+            else:
+                print("Invalid quote data format!")
+        except Exception as e:
+            print(f"Error loading quotes: {e}")
 
 
          ## defining the function for gym section clicked    
