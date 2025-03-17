@@ -100,10 +100,10 @@ class BMISectionWindow(QMainWindow):
         self.bmi_weight_line_edit = self.findChild(QLineEdit, "bmi_weight_line_edit")
         self.bmi_height_line_edit = self.findChild(QLineEdit, "bmi_height_line_edit")
 
-        self.save_button = self.findChild(QPushButton, "bmi_save_btn")  # Make sure the objectName in Designer is "save_button"
-        self.save_button.clicked.connect(self.save_data)
+        self.enter_button = self.findChild(QPushButton, "bmi_enter_btn")  # Make sure the objectName in Designer is "enter_button"
+        self.enter_button.clicked.connect(self.enter_data)
 
-    def save_data(self):
+    def enter_data(self):
         # Gather data from the QLineEdits
         data = {
             "age": self.bmi_age_line_edit.text(),
@@ -130,144 +130,12 @@ class BMISectionWindow(QMainWindow):
             with open(file_path, "w") as file:
                 json.dump(existing_data, file, indent=4)
 
-            print("Data saved successfully.")
+            print("Data enter"" successfully.")
 
         except Exception as e:
             print(f"Error saving data: {e}")
 
 
-
-
-
-'''class HeartHealthSectionWindow(QMainWindow):
-    def __init__(self):
-        super(HeartHealthSectionWindow, self).__init__()
-        uic.loadUi("R.H_Fitness_h_h_window.ui", self)
-
-        self.age_line_edit = self.findChild(QLineEdit, "age_line_edit")
-        self.weight_line_edit = self.findChild(QLineEdit, "weight_line_edit")
-        self.height_line_edit = self.findChild(QLineEdit, "height_line_edit")
-        self.heart_rate_running_line_edit = self.findChild(QLineEdit, "heart_rate_running_line_edit")
-        self.heart_rate_stationary_line_edit = self.findChild(QLineEdit, "heart_rate_stationary_line_edit")
-
-        # Find and connect the "Save" button (you need to add this button in Qt Designer if not already present)
-        self.save_button = self.findChild(QPushButton, "h_h_save_btn")  # Make sure the objectName in Designer is "save_button"
-        self.save_button.clicked.connect(self.save_data)
-
-    def save_data(self):
-        # Gather data from the QLineEdits
-        data = {
-            "age": self.age_line_edit.text(),
-            "weight": self.weight_line_edit.text(),
-            "height": self.height_line_edit.text(),
-            "heart_rate_running": self.heart_rate_running_line_edit.text(),
-            "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
-        }
-
-        # Write data to a JSON file
-        try:
-            # Define the path for the JSON file
-            file_path = "heart_health_data.json"
-            
-            # Check if the file exists; if it does, we will update it; otherwise, we'll create a new one
-            if os.path.exists(file_path):
-                with open(file_path, "r") as file:
-                    existing_data = json.load(file)
-            else:
-                existing_data = {}
-
-            # Update the existing data with the new data
-            existing_data.update(data)
-
-            # Save the updated data back into the JSON file
-            with open(file_path, "w") as file:
-                json.dump(existing_data, file, indent=4)
-
-            print("Data saved successfully.")
-
-        except Exception as e:
-            print(f"Error saving data: {e}")
-
-
-    def load_heart_health_calculation():
-        """Loads the predefined healthy heart rate ranges from a JSON file."""
-        file_path = "heart_health_calculation.json"
-        if not os.path.exists(file_path):
-            print("Healthy heart data file not found!")
-            return None
-        
-        with open(file_path, "r") as file:
-            return json.load(file)
-
-    def load_average_weight_data():
-        """Loads the predefined average weight ranges for each height."""
-        file_path = "average_weight_data.json"
-        if not os.path.exists(file_path):
-            print("Average weight data file not found!")
-            return None
-        
-        with open(file_path, "r") as file:
-            return json.load(file)
-
-    def evaluate_hear_health_calculation(user_data):
-        """Evaluates heart health based on user inputs and predefined healthy ranges."""
-        healthy_data = load_heart_health_calculation()
-        weight_data = load_average_weight_data()
-        if not healthy_data or not weight_data:
-            return "Cannot evaluate heart health. Missing reference data."
-        
-        h_h_age = int(user_data["age"])
-        h_h_weight = float(user_data["weight"])
-        h_h_height = float(user_data["height"])
-        h_h_bpm_rest = int(user_data["heart_rate_stationary"])
-        h_h_bpm_run = int(user_data["heart_rate_running"])
-        
-        # Find the appropriate age category
-        for category in healthy_data["age_groups"]:
-            if category["min_age"] <= age <= category["max_age"]:
-                bpm_rest_range = category["bpm_rest"]
-                bpm_run_range = category["bpm_run"]
-                break
-        else:
-            return "No reference data available for your age group."
-        
-        # Evaluate heart rate
-        is_healthy_rest = bpm_rest_range[0] <= h_h_bpm_rest <= bpm_rest_range[1]
-        is_healthy_run = bpm_run_range[0] <= h_h_bpm_run <= bpm_run_range[1]
-        
-        # Check for BMI range if needed (optional for deeper analysis)
-        bmi = h_h_weight / ((h_h_height / 100) ** 2)  # Convert height to meters
-        
-        # Check if weight is within the average range for the given height
-        if str(int(h_h_height)) in weight_data:
-            avg_weight_range = weight_data[str(int(h_h_height))]
-            is_weight_healthy = avg_weight_range[0] <= h_h_weight <= avg_weight_range[1]
-        else:
-            is_weight_healthy = True  # Assume healthy if no data is available
-        
-        health_status = ""
-        if is_healthy_rest and is_healthy_run:
-            health_status = "Your heart rate is within the healthy range for your age group."
-        else:
-            health_status = "Your heart rate is outside the healthy range. There are many factors that could contribute to this."
-            if not is_weight_healthy:
-                health_status += " One possible factor is your weight, which is outside the average range for your height."
-        
-        return f"Heart Health Evaluation:\n- Resting BPM: {h_h_bpm_rest} (Healthy: {is_healthy_rest})\n- Running BPM: {h_h_bpm_run} (Healthy: {is_healthy_run})\n- BMI: {bmi:.2f}\n- Weight Status: {'Healthy' if is_weight_healthy else 'Outside Average'}\n{health_status}"
-
-    # Example usage (assuming user_data is gathered from your GUI inputs)
-    user_data = {
-        "age": "25",
-        "weight": "90",
-        "height": "160",
-        "heart_rate_running": "150",
-        "heart_rate_stationary": "90"
-    }
-
-    print(evaluate_heart_health_calculation(user_data))
-
-
-'''
 
 class HeartHealthSectionWindow(QMainWindow):
     def __init__(self):
@@ -280,10 +148,10 @@ class HeartHealthSectionWindow(QMainWindow):
         self.heart_rate_running_line_edit = self.findChild(QLineEdit, "heart_rate_running_line_edit")
         self.heart_rate_stationary_line_edit = self.findChild(QLineEdit, "heart_rate_stationary_line_edit")
 
-        self.save_button = self.findChild(QPushButton, "h_h_save_btn")
-        self.save_button.clicked.connect(self.save_data)
+        self.enter_button = self.findChild(QPushButton, "h_h_enter_btn")
+        self.enter_button.clicked.connect(self.enter_data)
 
-    def save_data(self):
+    def enter_data(self):
         data = {
             "age": self.age_line_edit.text(),
             "weight": self.weight_line_edit.text(),
@@ -305,92 +173,10 @@ class HeartHealthSectionWindow(QMainWindow):
             with open(file_path, "w") as file:
                 json.dump(existing_data, file, indent=4)
 
-            print("Data saved successfully.")
+            print("Data entered successfully.")
 
         except Exception as e:
             print(f"Error saving data: {e}")
-
-    def load_heart_health_calculation(self):
-        """Loads the predefined healthy heart rate ranges from a JSON file."""
-        file_path = "heart_health_calculation.json"
-        if not os.path.exists(file_path):
-            print("Healthy heart data file not found!")
-            return None
-        
-        with open(file_path, "r") as file:
-            return json.load(file)
-
-    def load_average_weight_data(self):
-        """Loads the predefined average weight ranges for each height."""
-        file_path = "average_weight_data.json"
-        if not os.path.exists(file_path):
-            print("Average weight data file not found!")
-            return None
-        
-        with open(file_path, "r") as file:
-            return json.load(file)
-
-    def evaluate_heart_health_calculation(self, user_data):
-        """Evaluates heart health based on user inputs and predefined healthy ranges."""
-        healthy_data = self.load_heart_health_calculation()
-        weight_data = self.load_average_weight_data()
-        if not healthy_data or not weight_data:
-            return "Cannot evaluate heart health. Missing reference data."
-        
-        h_h_age = int(user_data["age"])
-        h_h_weight = float(user_data["weight"])
-        h_h_height = float(user_data["height"])
-        h_h_bpm_rest = int(user_data["heart_rate_stationary"])
-        h_h_bpm_run = int(user_data["heart_rate_running"])
-        
-        for category in healthy_data["age_groups"]:
-            if category["min_age"] <= h_h_age <= category["max_age"]:
-                bpm_rest_range = category["bpm_rest"]
-                bpm_run_range = category["bpm_run"]
-                break
-        else:
-            return "No reference data available for your age group."
-        
-        is_healthy_rest = bpm_rest_range[0] <= h_h_bpm_rest <= bpm_rest_range[1]
-        is_healthy_run = bpm_run_range[0] <= h_h_bpm_run <= bpm_run_range[1]
-        
-        bmi = h_h_weight / ((h_h_height / 100) ** 2)  
-
-        if str(int(h_h_height)) in weight_data:
-            avg_weight_range = weight_data[str(int(h_h_height))]
-            is_weight_healthy = avg_weight_range[0] <= h_h_weight <= avg_weight_range[1]
-        else:
-            is_weight_healthy = True  
-        
-        health_status = ""
-        if is_healthy_rest and is_healthy_run:
-            health_status = "Your heart rate is within the healthy range for your age group."
-        else:
-            health_status = "Your heart rate is outside the healthy range. There are many factors that could contribute to this."
-            if not is_weight_healthy:
-                health_status += " One possible factor is your weight, which is outside the average range for your height."
-        
-        return f"Heart Health Evaluation:\n- Resting BPM: {h_h_bpm_rest} (Healthy: {is_healthy_rest})\n- Running BPM: {h_h_bpm_run} (Healthy: {is_healthy_run})\n- BMI: {bmi:.2f}\n- Weight Status: {'Healthy' if is_weight_healthy else 'Outside Average'}\n{health_status}"
-
-
-# Example of how to use it inside the class:
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = HeartHealthSectionWindow()
-
-    user_data = {
-        "age": "25",
-        "weight": "90",
-        "height": "160",
-        "heart_rate_running": "150",
-        "heart_rate_stationary": "90"
-    }
-
-    print(window.evaluate_heart_health_calculation(user_data))
-
-    window.show()
-    app.exec_()
-
 
 
 class GymSectionWindow(QMainWindow):

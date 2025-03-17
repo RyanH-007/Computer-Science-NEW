@@ -163,7 +163,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="bmi_save_btn">
+     <widget class="QPushButton" name="bmi_enter_btn">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -173,7 +173,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Save </string>
+       <string>Enter</string>
       </property>
      </widget>
      <widget class="QLabel" name="bmi_age_lbl_2">

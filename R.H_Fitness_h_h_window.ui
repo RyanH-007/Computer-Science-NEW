@@ -242,7 +242,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="h_h_save_btn">
+     <widget class="QPushButton" name="h_h_enter_btn">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -252,7 +252,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Save </string>
+       <string>Enter</string>
       </property>
      </widget>
      <widget class="QLabel" name="age_lbl_2">
@@ -273,12 +273,12 @@
        <rect>
         <x>190</x>
         <y>202</y>
-        <width>21</width>
+        <width>201</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>kg</string>
+       <string>kg (to the nearest whole number)</string>
       </property>
      </widget>
      <widget class="QLabel" name="height_lbl_2">
@@ -286,12 +286,12 @@
        <rect>
         <x>190</x>
         <y>250</y>
-        <width>21</width>
+        <width>201</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>cm</string>
+       <string>cm (to the nearest whole number)</string>
       </property>
      </widget>
      <widget class="QLabel" name="heart_rate_running_lbl_2">

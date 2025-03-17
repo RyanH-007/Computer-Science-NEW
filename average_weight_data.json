@@ -1,16 +1,76 @@
 {
-    "age_groups": [
+    "weight_height_groups_male": [
         {
-            "min_age": 18,
-            "max_age": 25,
-            "bpm_rest": [61, 65],
-            "bpm_run": [100, 160]
+            "height":[137, 139],
+            "weight":[28, 35]
         },
         {
-            "min_age": 30,
-            "max_age": 39,
-            "bpm_rest": [62, 82],
-            "bpm_run": [118, 165]
+            "height":[140, 141],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
+        },
+        {
+            "height":[137, 139],
+            "weight":[28, 35]
         }
     ]
 }
