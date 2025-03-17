@@ -1,7 +1,7 @@
 {
-    "age": "6",
-    "weight": "",
-    "height": "",
-    "heart_rate_running": "",
-    "heart_rate_stationary": ""
+    "age": "18",
+    "weight": "90",
+    "height": "190",
+    "heart_rate_running": "140",
+    "heart_rate_stationary": "60"
 }
