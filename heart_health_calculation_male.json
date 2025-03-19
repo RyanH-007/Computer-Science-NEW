@@ -1,0 +1,59 @@
+{
+    "age_groups": [
+        {
+            "min_age": 18,
+            "max_age": 25,
+            "bpm_rest": [61, 65],
+            "bpm_run": [100, 170]
+        },
+        {
+            "min_age": 26,
+            "max_age": 35,
+            "bpm_rest": [62, 65],
+            "bpm_run": [93, 160]
+        },
+        {
+            "min_age": 36,
+            "max_age": 45,
+            "bpm_rest": [63, 66],
+            "bpm_run": [100, 160]
+        },
+        {
+            "min_age": 46,
+            "max_age": 55,
+            "bpm_rest": [64, 67],
+            "bpm_run": [100, 160]
+        },
+        {
+            "min_age": 56,
+            "max_age": 65,
+            "bpm_rest": [62, 67],
+            "bpm_run": [100, 160]
+        },
+        {
+            "min_age": 66,
+            "max_age": 90,
+            "bpm_rest": [65, 68],
+            "bpm_run": [100, 160]
+        },
+        {
+            "min_age": 18,
+            "max_age": 25,
+            "bpm_rest": [61, 65],
+            "bpm_run": [100, 160]
+        },
+        {
+            "min_age": 18,
+            "max_age": 25,
+            "bpm_rest": [61, 65],
+            "bpm_run": [100, 160]
+        },
+        {
+            "min_age": 18,
+            "max_age": 25,
+            "bpm_rest": [61, 65],
+            "bpm_run": [100, 160]
+        }
+
+    ]
+}

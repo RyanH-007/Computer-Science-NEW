@@ -92,6 +92,7 @@ class Fitness_UI(QMainWindow):
 
 
 class BMISectionWindow(QMainWindow):
+    
     def __init__(self):
         super(BMISectionWindow, self).__init__()
         uic.loadUi("R.H_Fitness_bmi_window.ui", self)
@@ -136,8 +137,8 @@ class BMISectionWindow(QMainWindow):
             print(f"Error saving data: {e}")
 
 
-
 class HeartHealthSectionWindow(QMainWindow):
+    
     def __init__(self):
         super(HeartHealthSectionWindow, self).__init__()
         uic.loadUi("R.H_Fitness_h_h_window.ui", self)
@@ -148,9 +149,62 @@ class HeartHealthSectionWindow(QMainWindow):
         self.heart_rate_running_line_edit = self.findChild(QLineEdit, "heart_rate_running_line_edit")
         self.heart_rate_stationary_line_edit = self.findChild(QLineEdit, "heart_rate_stationary_line_edit")
 
+        # This button saved the users entered data and then will be used to transfer into the calculation program
         self.enter_button = self.findChild(QPushButton, "h_h_enter_btn")
         self.enter_button.clicked.connect(self.enter_data)
 
+        # Gender buttons 
+        self.h_h_male_button = self.findChild(QPushButton, "h_h_male_btn")
+        self.h_h_female_button = self.findChild(QPushButton, "h_h_female_btn")
+
+        #store selected gender
+        self.selected_gender = None
+
+        #Connecting buttons
+        self.h_h_male_button.clicked.connect(lambda: self.set_gender("Male"))
+        self.h_h_female_button.clicked.connect(lambda: self.set_gender("Female"))
+        self.enter_button.clicked.connect(self.enter_data)
+
+    def set_gender(self,gender):
+        """Sets the selected gender and visually highlights the chosen button."""
+        self.selected_gender = gender
+        self.h_h_male_button.setStyleSheet("background-color: lightgray;" if gender == "Female" else "background-color: lightblue;")
+        self.h_h_female_button.setStyleSheet("background-color: lightgray;" if gender == "Male" else "background-color: pink;")
+
+    def enter_data(self):
+    #Saves user data including selected gender.
+        if self.selected_gender is None:
+            print("Please select a gender before entering data.")
+            return
+    
+        data = {
+                "gender": self.selected_gender,
+                "age": self.age_line_edit.text(),
+                "weight": self.weight_line_edit.text(),
+                "height": self.height_line_edit.text(),
+                "heart_rate_running": self.heart_rate_running_line_edit.text(),
+                "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
+        }
+
+    try:
+            file_path = "heart_health_data.json"
+            if os.path.exists(file_path):
+                with open(file_path, "r") as file:
+                    existing_data = json.load(file)
+            else:
+                existing_data = {}
+
+            existing_data.update(data)
+
+            with open(file_path, "w") as file:
+                json.dump(existing_data, file, indent=4)
+
+            print("Data entered successfully.")
+
+    except Exception as e:
+            print(f"Error saving data: {e}")
+ 
+ 
     def enter_data(self):
         data = {
             "age": self.age_line_edit.text(),
