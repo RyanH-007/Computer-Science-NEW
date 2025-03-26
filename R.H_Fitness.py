@@ -22,7 +22,7 @@ class Fitness_UI(QMainWindow):
     ## Constructor for the class, which initialises an object's state 
     def __init__(self):
 
-        super(Fitness_UI,self).__init__() # call constrcutor of parent class         #AI
+        super(Fitness_UI,self).__init__() # call constrcutor of parent class         
 
         ##Loads the xml file and converts into readable python
         uic.loadUi("R.H_Fitness_mainwindow.ui",self)  
@@ -151,11 +151,12 @@ class HeartHealthSectionWindow(QMainWindow):
 
         # This button saved the users entered data and then will be used to transfer into the calculation program
         self.enter_button = self.findChild(QPushButton, "h_h_enter_btn")
-        self.enter_button.clicked.connect(self.enter_data)
 
         # Gender buttons 
         self.h_h_male_button = self.findChild(QPushButton, "h_h_male_btn")
         self.h_h_female_button = self.findChild(QPushButton, "h_h_female_btn")
+
+        self.result_label = self.findChild(QLabel, "result_lbl") 
 
         #store selected gender
         self.selected_gender = None
@@ -170,6 +171,26 @@ class HeartHealthSectionWindow(QMainWindow):
         self.selected_gender = gender
         self.h_h_male_button.setStyleSheet("background-color: lightgray;" if gender == "Female" else "background-color: lightblue;")
         self.h_h_female_button.setStyleSheet("background-color: lightgray;" if gender == "Male" else "background-color: pink;")
+
+    def process_data(self):
+        """Loads user data, compares it to healthy BPM ranges, and displays the result."""
+        if self.selected_gender is None:
+            self.result_label.setText("Please select a gender before proceeding.")
+            return
+
+     # Gather user input
+        user_data = {
+            "gender": self.selected_gender,
+            "age": self.age_line_edit.text(),
+            "weight": self.weight_line_edit.text(),
+            "height": self.height_line_edit.text(),
+            "heart_rate_running": self.heart_rate_running_line_edit.text(),
+            "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
+        }
+
+    
+
+
 
     def enter_data(self):
     #Saves user data including selected gender.
@@ -238,9 +259,9 @@ class GymSectionWindow(QMainWindow):
         super(GymSectionWindow, self).__init__()
         uic.loadUi("R.H_Fitness_g_s_window.ui", self)
 
-        self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget") #AI
-        self.template_tab_widget = self.findChild(QTabWidget, "template_tab_wdgt") #AI
-        self.shoulders_button = self.findChild(QPushButton, "shoulders_btn") #AI
+        self.g_s_tab = self.findChild(QTabWidget, "g_s_tab_widget") 
+        self.template_tab_widget = self.findChild(QTabWidget, "template_tab_wdgt") 
+        self.shoulders_button = self.findChild(QPushButton, "shoulders_btn") 
         self.biceps_button = self.findChild(QPushButton, "biceps_btn")
         self.forearms_button = self.findChild(QPushButton, "forearms_btn")
         self.hand_grip_button = self.findChild(QPushButton, "hands_btn")
@@ -312,8 +333,7 @@ class GymSectionWindow(QMainWindow):
             print(f"Error loading {tab_name} tab:", str(e))
 
 
-import os #AI
-print(os.path.exists("shoulders_tab_widget.ui")) #AI
+print(os.path.exists("shoulders_tab_widget.ui")) 
 
 
 app = QApplication(sys.argv)

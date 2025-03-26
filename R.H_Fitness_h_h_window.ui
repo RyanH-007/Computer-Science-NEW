@@ -252,7 +252,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>16 - 100 yrs old</string>
+       <string>18 - 70 yrs old</string>
       </property>
      </widget>
      <widget class="QLabel" name="weight_lbl_2">
@@ -294,7 +294,7 @@
        <string>BPM</string>
       </property>
      </widget>
-     <widget class="QLabel" name="bpm_stationary_lbl">
+     <widget class="QLabel" name="heart_rate_stationary_lbl_">
       <property name="geometry">
        <rect>
         <x>292</x>

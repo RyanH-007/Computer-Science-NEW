@@ -1,0 +1,55 @@
+{
+    "Male": {
+        "18-25":{
+            "bpm_stationary": [61,65],
+            "bpm_running": [100,150]
+        },  
+        "26-35":{
+            "bpm_stationary": [62,65],
+            "bpm_running": [95,142]
+        },
+        "36-45":{
+            "bpm_stationary": [63,66],
+            "bpm_running": [100,130]
+        },
+        "46-55":{
+            "bpm_stationary": [64,67],
+            "bpm_running": [95,123]
+        },
+        "56-65":{
+            "bpm_stationary": [62,67],
+            "bpm_running": [90,117]
+        },
+        "66-70":{
+            "bpm_stationary": [62,65],
+            "bpm_running": [85,113]
+        }
+    },
+    "Female":{ 
+        "18-25":{
+            "bpm_stationary": [66,69],
+            "bpm_running": [111,146]
+        },  
+        "26-35":{
+            "bpm_stationary": [65,68],
+            "bpm_running": [106,138]
+        },
+        "36-45":{
+            "bpm_s  ationary": [65,69],
+            "bpm_running": [97,127]
+        },
+        "46-55":{
+            "bpm_stationary": [66,69],
+            "bpm_running": [93,122]
+        },
+        "56-65":{
+            "bpm_stationary": [65,68],
+            "bpm_running": [90,117]
+        },
+        "66-70":{
+            "bpm_stationary": [65,68],
+            "bpm_running": [86,114]
+    
+        }
+    }
+}
