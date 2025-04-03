@@ -158,6 +158,8 @@ class HeartHealthSectionWindow(QMainWindow):
 
         self.result_label = self.findChild(QLabel, "result_lbl") 
 
+        self.h_h_template_tab_widget = self.findChild(QTabWidget, "template_h_h_tab_wdgt")
+
         #store selected gender
         self.selected_gender = None
 
@@ -188,7 +190,78 @@ class HeartHealthSectionWindow(QMainWindow):
             "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
         }
 
-    
+     # Validate input
+        try:
+            user_data["age"] = int(user_data["age"])
+            user_data["heart_rate_running"] = int(user_data["heart_rate_running"])
+            user_data["heart_rate_stationary"] = int(user_data["heart_rate_stationary"])
+        except ValueError:
+            self.result_label.setText("Please enter valid numerical values.")
+            return
+        # Save user data
+        self.save_user_data(user_data)
+
+        # Load healthy BPM ranges and compare
+        result = self.evaluate_heart_health(user_data)
+        self.result_label.setText(result)
+
+    def save_user_data(self, data):
+        """Saves user biometric data into JSON file."""
+        try:
+            file_path = "heart_health_data.json"
+            with open(file_path, "w") as file:
+                json.dump(data, file, indent=4)
+        except Exception as e:
+            self.result_label.setText(f"Error saving data: {e}")
+
+    def evaluate_heart_health(self, user_data):
+        """Compares user's heart rate against healthy BPM ranges and returns the result."""
+        file_path = "healthy_bpm_ranges.json"
+        if not os.path.exists(file_path):
+            return "Error: Healthy BPM data file not found."
+
+        try:
+            with open(file_path, "r") as file:
+                bpm_data = json.load(file)
+
+            gender = user_data["gender"]
+            age = user_data["age"]
+            heart_rate_running = user_data["heart_rate_running"]
+            heart_rate_stationary = user_data["heart_rate_stationary"]
+
+            # Find the matching age range
+            for age_range, values in bpm_data[gender].items():
+                min_age, max_age = map(int, age_range.split("-"))
+                if min_age <= age <= max_age:
+                    healthy_range = values
+                    break
+            else:
+                return "No BPM data available for this age range."
+
+            # Compare BPM values
+            min_bpm, max_bpm = healthy_range["stationary"]
+            min_run_bpm, max_run_bpm = healthy_range["running"]
+
+            result = []
+
+            if min_bpm <= heart_rate_stationary <= max_bpm:
+                result.append("Your resting heart rate is healthy.")
+            elif heart_rate_stationary > max_bpm:
+                result.append("Your resting heart rate is high. Consider improving cardiovascular health.")
+            else:
+                result.append("Your resting heart rate is very low, which may indicate excellent fitness.")
+
+            if min_run_bpm <= heart_rate_running <= max_run_bpm:
+                result.append("Your running heart rate is within a healthy range.")
+            elif heart_rate_running > max_run_bpm:
+                result.append("Your running heart rate is too high. Consider adjusting workout intensity.")
+            else:
+                result.append("Your running heart rate is lower than average, which may indicate strong cardiovascular fitness.")
+
+            return " ".join(result)
+
+        except Exception as e:
+            return f"Error processing data: {e}"
 
 
 
@@ -201,8 +274,6 @@ class HeartHealthSectionWindow(QMainWindow):
         data = {
                 "gender": self.selected_gender,
                 "age": self.age_line_edit.text(),
-                "weight": self.weight_line_edit.text(),
-                "height": self.height_line_edit.text(),
                 "heart_rate_running": self.heart_rate_running_line_edit.text(),
                 "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
         }
@@ -229,8 +300,6 @@ class HeartHealthSectionWindow(QMainWindow):
     def enter_data(self):
         data = {
             "age": self.age_line_edit.text(),
-            "weight": self.weight_line_edit.text(),
-            "height": self.height_line_edit.text(),
             "heart_rate_running": self.heart_rate_running_line_edit.text(),
             "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
         }
@@ -252,6 +321,105 @@ class HeartHealthSectionWindow(QMainWindow):
 
         except Exception as e:
             print(f"Error saving data: {e}")
+
+    def process_data(self):
+        """Loads user data, compares it to healthy BPM ranges, and updates the tab widget accordingly."""
+        if self.selected_gender is None:
+            self.result_label.setText("Please select a gender before proceeding.")
+            return
+
+        user_data = {
+            "gender": self.selected_gender,
+            "age": self.age_line_edit.text(),
+            "heart_rate_running": self.heart_rate_running_line_edit.text(),
+            "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
+        }
+
+        try:
+            user_data["age"] = int(user_data["age"])
+            user_data["heart_rate_running"] = int(user_data["heart_rate_running"])
+            user_data["heart_rate_stationary"] = int(user_data["heart_rate_stationary"])
+        except ValueError:
+            self.result_label.setText("Please enter valid numerical values.")
+            return
+
+        # Save user data
+        self.save_user_data(user_data)
+
+        # Evaluate heart health
+        result_key = self.evaluate_heart_health(user_data)
+
+        # Load the corresponding tab based on the result
+        self.load_heart_health_tab(result_key)
+
+    def load_heart_health_tab(self, result_key):
+        """Loads the appropriate heart health result tab into template_h_h_tab_widget."""
+        tab_mapping = {
+            "healthy": "healthy_widget.ui",
+            "too_high": "too_high_widget.ui",
+            "too_low": "too_low_widget.ui"
+        }
+
+        if result_key not in tab_mapping:
+            print("Invalid result key!")
+            return
+
+        ui_filename = tab_mapping[result_key]
+
+        try:
+            new_tab = QWidget()
+            uic.loadUi(ui_filename, new_tab)
+
+            # Replace the current tab with the new tab
+            current_index = self.template_h_h_tab_wdgt.currentIndex()  
+            if current_index == -1:
+                self.template_h_h_tab_wdgt.addTab(new_tab, "Heart Health Result")
+                self.template_h_h_tab_wdgt.setCurrentIndex(0)
+            else:
+                self.template_h_h_tab_wdgt.removeTab(current_index)
+                self.template_h_h_tab_wdgt.insertTab(current_index, new_tab, "Heart Health Result")
+                self.template_h_h_tab_wdgt.setCurrentIndex(current_index)
+
+        except Exception as e:
+            print(f"Error loading heart health result tab: {e}")
+
+    def evaluate_heart_health(self, user_data):
+        """Returns a key indicating the heart health category (healthy, too_high, too_low)."""
+        file_path = "healthy_bpm_ranges.json"
+        if not os.path.exists(file_path):
+            return "error"
+
+        try:
+            with open(file_path, "r") as file:
+                bpm_data = json.load(file)
+
+            gender = user_data["gender"]
+            age = user_data["age"]
+            heart_rate_running = user_data["heart_rate_running"]
+            heart_rate_stationary = user_data["heart_rate_stationary"]
+
+            # Find the matching age range
+            for age_range, values in bpm_data[gender].items():
+                min_age, max_age = map(int, age_range.split("-"))
+                if min_age <= age <= max_age:
+                    healthy_range = values
+                    break
+            else:
+                return "error"
+
+            min_bpm, max_bpm = healthy_range["stationary"]
+            min_run_bpm, max_run_bpm = healthy_range["running"]
+
+            if min_bpm <= heart_rate_stationary <= max_bpm and min_run_bpm <= heart_rate_running <= max_run_bpm:
+                return "healthy"
+            elif heart_rate_stationary > max_bpm or heart_rate_running > max_run_bpm:
+                return "too_high"
+            else:
+                return "too_low"
+
+        except Exception as e:
+            return "error"
+
 
 
 class GymSectionWindow(QMainWindow):
