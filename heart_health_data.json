@@ -1,5 +1,6 @@
 {
-    "age": "3",
-    "heart_rate_running": "333",
-    "heart_rate_stationary": "33"
+    "gender": "Male",
+    "age": 18,
+    "heart_rate_running": 185,
+    "heart_rate_stationary": 70
 }
