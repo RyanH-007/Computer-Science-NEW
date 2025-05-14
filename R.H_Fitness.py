@@ -150,7 +150,7 @@ class HeartHealthSectionWindow(QMainWindow):
 
         # This button saved the users entered data and then will be used to transfer into the calculation program
         self.enter_button = self.findChild(QPushButton, "h_h_enter_btn")
-
+ary
         # Gender buttons 
         self.h_h_male_button = self.findChild(QPushButton, "h_h_male_btn")
         self.h_h_female_button = self.findChild(QPushButton, "h_h_female_btn")
@@ -615,7 +615,7 @@ class HeartHealthSectionWindow(QMainWindow):
         """Returns 'healthy', 'too_high', or 'too_low' based on BPM comparison."""
         file_path = "heart_health_calculation.json"
         if not os.path.exists(file_path):
-            print("Error: healthy_bpm_ranges.json not found.")
+            print("Error: heart_health_calculation.json not found.")
             return "too_high"  # fallback to a safe default
 
         try:
@@ -627,6 +627,9 @@ class HeartHealthSectionWindow(QMainWindow):
             hr_running = user_data["heart_rate_running"]
             hr_stationary = user_data["heart_rate_stationary"]
 
+            # ✅ NOW it's safe to print
+            print(f"Evaluating age: {age}, gender: {gender}")
+
             # Find correct age bracket
             for age_range, values in bpm_data[gender].items():
                 min_age, max_age = map(int, age_range.split("-"))
@@ -637,8 +640,8 @@ class HeartHealthSectionWindow(QMainWindow):
                 print("No BPM data for this age.")
                 return "too_high"
 
-            min_rest, max_rest = healthy_range["stationary"]
-            min_run, max_run = healthy_range["running"]
+            min_rest, max_rest = healthy_range["bpm_stationary"]
+            min_run, max_run = healthy_range["bpm_running"]
 
             if (min_rest <= hr_stationary <= max_rest) and (min_run <= hr_running <= max_run):
                 return "healthy"
@@ -650,34 +653,33 @@ class HeartHealthSectionWindow(QMainWindow):
         except Exception as e:
             print(f"Error in evaluation: {e}")
             return "too_high"
-
-
+        
     def load_heart_health_tab(self, result_key):
-        """Loads the correct heart health tab into the placeholder QTabWidget."""
-        tab_mapping = {
-            "healthy": "healthy_widget.ui",
-            "too_high": "too_high_widget.ui",
-            "too_low": "too_low_widget.ui"
+        from PyQt5.uic import loadUi
+
+        widget_map = {
+            "healthy": "healthy_heart_widget.ui",
+            "too_high": "un_healthy_heart_widget.ui",
+            "too_low": "very_healthy_widget.ui"
         }
 
-        ui_file = tab_mapping.get(result_key)
+        ui_file = widget_map.get(result_key)
+
         if not ui_file:
-            print("Invalid result key:", result_key)
+            print(f"Invalid result key: {result_key}")
             return
 
         try:
-            new_tab = QWidget()
-            uic.loadUi(ui_file, new_tab)
+            new_tab_widget = loadUi(ui_file)
+            parent_layout = self.h_h_template_tab_widget.parentWidget().layout()
+            
+            # Remove the old widget
+            parent_layout.removeWidget(self.h_h_template_tab_widget)
+            self.h_h_template_tab_widget.deleteLater()
 
-            # Replace the only tab in template_h_h_tab_wdgt
-            if self.h_h_template_tab_widget.count() > 0:
-                self.h_h_template_tab_widget.removeTab(0)
-
-            self.h_h_template_tab_widget.addTab(new_tab, "Heart Health Result")
-            self.h_h_template_tab_widget.setCurrentIndex(0)
-
-            print(f"Loaded result tab: {result_key}")
-
+            # Replace with the new one
+            self.h_h_template_tab_widget = new_tab_widget
+            parent_layout.addWidget(self.h_h_template_tab_widget)
         except Exception as e:
             print(f"Error loading tab UI: {e}")
 
