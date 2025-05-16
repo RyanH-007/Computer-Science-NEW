@@ -671,17 +671,25 @@ class HeartHealthSectionWindow(QMainWindow):
 
         try:
             new_tab_widget = loadUi(ui_file)
-            parent_layout = self.h_h_template_tab_widget.parentWidget().layout()
-            
-            # Remove the old widget
-            parent_layout.removeWidget(self.h_h_template_tab_widget)
+
+            # Get the layout from a known container (set in Qt Designer)
+            container = self.findChild(QWidget, "h_h_tab_container")  # Make sure this matches your Qt Designer name
+            layout = container.layout()
+            if layout is None:
+                print("Error: No layout set on the container in Qt Designer.")
+                return
+
+            # Replace widgets
+            layout.removeWidget(self.h_h_template_tab_widget)
+            self.h_h_template_tab_widget.setParent(None)  # Safely remove the old widget
             self.h_h_template_tab_widget.deleteLater()
 
-            # Replace with the new one
             self.h_h_template_tab_widget = new_tab_widget
-            parent_layout.addWidget(self.h_h_template_tab_widget)
+            layout.addWidget(self.h_h_template_tab_widget)
+
         except Exception as e:
             print(f"Error loading tab UI: {e}")
+
 
 
 class GymSectionWindow(QMainWindow):
