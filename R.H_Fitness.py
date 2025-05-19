@@ -538,11 +538,8 @@ class HeartHealthSectionWindow(QMainWindow):
             self.result_label.setText(f"Error loading heart health tab: {e}")
 
 ''' 
-import os
-import json
-from PyQt5.QtWidgets import QMainWindow, QLineEdit, QPushButton, QLabel, QTabWidget, QWidget
-from PyQt5 import uic
 
+'''
 class HeartHealthSectionWindow(QMainWindow):
     
     def __init__(self):
@@ -689,7 +686,356 @@ class HeartHealthSectionWindow(QMainWindow):
 
         except Exception as e:
             print(f"Error loading tab UI: {e}")
+'''
+''' claude
+class HeartHealthSectionWindow(QMainWindow):
+    def __init__(self):
+        super(HeartHealthSectionWindow, self).__init__()
+        uic.loadUi("R.H_Fitness_h_h_window.ui", self)
+        
+        # Find UI elements
+        self.h_h_tab = self.findChild(QTabWidget, "h_h_tab_widget")
+        self.template_tab_widget = self.findChild(QTabWidget, "template_tab_wdgt")
+        
+        # Gender selection buttons
+        self.male_button = self.findChild(QPushButton, "male_btn")
+        self.female_button = self.findChild(QPushButton, "female_btn")
+        
+        # Input fields
+        self.age_input = self.findChild(QLineEdit, "age_input")
+        self.stationary_bpm_input = self.findChild(QLineEdit, "stationary_bpm_input")
+        self.running_bpm_input = self.findChild(QLineEdit, "running_bpm_input")
+        
+        # Submit button
+        self.enter_button = self.findChild(QPushButton, "enter_btn")
+        
+        # Connect signals
+        self.male_button.clicked.connect(lambda: self.select_gender("male"))
+        self.female_button.clicked.connect(lambda: self.select_gender("female"))
+        self.enter_button.clicked.connect(self.calculate_heart_health)
+        
+        # Store selected gender
+        self.selected_gender = None
+        
+        # Load heart health calculation data
+        self.heart_health_ranges = self.load_heart_health_ranges()
+    
+    def select_gender(self, gender):
+        """Handle gender selection"""
+        self.selected_gender = gender
+        
+        # Visual feedback for selected gender (optional)
+        if gender == "male":
+            self.male_button.setStyleSheet("background-color: #4CAF50; color: white;")
+            self.female_button.setStyleSheet("")
+        else:
+            self.female_button.setStyleSheet("background-color: #4CAF50; color: white;")
+            self.male_button.setStyleSheet("")
+    
+    def load_heart_health_ranges(self):
+        """Load heart health calculation ranges from JSON file"""
+        try:
+            with open("heart_health_calculation.json", "r") as file:
+                return json.load(file)
+        except FileNotFoundError:
+            print("Error: heart_health_calculation.json not found")
+            return {}
+        except json.JSONDecodeError:
+            print("Error: Invalid JSON format in heart_health_calculation.json")
+            return {}
+    
+    def save_user_data(self, user_data):
+        """Save user data to heart_health_data.json"""
+        try:
+            # Load existing data or create empty list
+            if os.path.exists("heart_health_data.json"):
+                with open("heart_health_data.json", "r") as file:
+                    data = json.load(file)
+            else:
+                data = []
+            
+            # Add new user data
+            data.append(user_data)
+            
+            # Save updated data
+            with open("heart_health_data.json", "w") as file:
+                json.dump(data, file, indent=4)
+            
+            print("User data saved successfully")
+        except Exception as e:
+            print(f"Error saving user data: {str(e)}")
+    
+    def find_age_range(self, age, gender_data):
+        """Find the appropriate age range for the given age"""
+        for age_range, data in gender_data.items():
+            if "-" in age_range:
+                min_age, max_age = map(int, age_range.split("-"))
+                if min_age <= age <= max_age:
+                    return data
+        return None
+    
+    def calculate_heart_health(self):
+        """Calculate heart health based on user input"""
+        try:
+            # Validate inputs
+            if not self.selected_gender:
+                QMessageBox.warning(self, "Warning", "Please select a gender first!")
+                return
+            
+            if not all([self.age_input.text(), self.stationary_bpm_input.text(), self.running_bpm_input.text()]):
+                QMessageBox.warning(self, "Warning", "Please fill in all fields!")
+                return
+            
+            # Get user input
+            age = int(self.age_input.text())
+            stationary_bpm = int(self.stationary_bpm_input.text())
+            running_bpm = int(self.running_bpm_input.text())
+            
+            # Validate age range
+            if age < 18 or age > 70:
+                QMessageBox.warning(self, "Warning", "Age must be between 18 and 70!")
+                return
+            
+            # Validate BPM ranges (basic validation)
+            if stationary_bpm <= 0 or running_bpm <= 0:
+                QMessageBox.warning(self, "Warning", "BPM values must be positive!")
+                return
+            
+            if running_bpm <= stationary_bpm:
+                QMessageBox.warning(self, "Warning", "Running BPM should be higher than stationary BPM!")
+                return
+            
+            # Prepare user data for saving
+            user_data = {
+                "gender": self.selected_gender,
+                "age": age,
+                "stationary_bpm": stationary_bpm,
+                "running_bpm": running_bpm
+            }
+            
+            # Save user data
+            self.save_user_data(user_data)
+            
+            # Get heart health ranges for selected gender
+            if self.selected_gender not in self.heart_health_ranges:
+                QMessageBox.critical(self, "Error", f"No data available for {self.selected_gender}")
+                return
+            
+            gender_data = self.heart_health_ranges[self.selected_gender]
+            age_range_data = self.find_age_range(age, gender_data)
+            
+            if not age_range_data:
+                QMessageBox.critical(self, "Error", f"No age range data found for age {age}")
+                return
+            
+            # Get healthy ranges
+            stationary_range = age_range_data.get("bpm_stationary", [])
+            running_range = age_range_data.get("bpm_running", [])
+            
+            if not stationary_range or not running_range:
+                QMessageBox.critical(self, "Error", "Invalid range data in calculation file")
+                return
+            
+            # Determine heart health status
+            stationary_min, stationary_max = stationary_range
+            running_min, running_max = running_range
+            
+            # Check stationary BPM
+            if stationary_bpm < stationary_min:
+                stationary_status = "very_healthy"
+            elif stationary_min <= stationary_bpm <= stationary_max:
+                stationary_status = "healthy"
+            else:
+                stationary_status = "unhealthy"
+            
+            # Check running BPM
+            if running_bpm < running_min:
+                running_status = "very_healthy"
+            elif running_min <= running_bpm <= running_max:
+                running_status = "healthy"
+            else:
+                running_status = "unhealthy"
+            
+            # Overall health status (you can adjust this logic as needed)
+            if stationary_status == "unhealthy" or running_status == "unhealthy":
+                overall_status = "unhealthy"
+            elif stationary_status == "very_healthy" and running_status == "very_healthy":
+                overall_status = "very_healthy"
+            else:
+                overall_status = "healthy"
+            
+            # Load appropriate widget
+            self.load_result_widget(overall_status)
+            
+        except ValueError:
+            QMessageBox.warning(self, "Warning", "Please enter valid numbers for age and BPM values!")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"An error occurred: {str(e)}")
+    
+    def load_result_widget(self, health_status):
+        """Load the appropriate result widget based on health status"""
+        widget_files = {
+            "very_healthy": "very_healthy_heart_widget.ui",
+            "healthy": "healthy_heart_widget.ui",
+            "unhealthy": "unhealthy_heart_widget.ui"
+        }
+        
+        ui_filename = widget_files.get(health_status)
+        if not ui_filename:
+            print(f"Error: Unknown health status {health_status}")
+            return
+        
+        try:
+            # Load the result widget
+            new_tab = QWidget()
+            uic.loadUi(ui_filename, new_tab)
+            
+            # Ensure that template_tab_widget exists and is a QTabWidget
+            if not isinstance(self.template_tab_widget, QTabWidget):
+                print("Error: template_tab_widget is not a QTabWidget!")
+                return
+            
+            # Get the index of the current tab
+            current_index = self.template_tab_widget.currentIndex()
+            
+            # Create tab name based on health status
+            tab_name = health_status.replace("_", " ").title() + " Heart"
+            
+            # Replace or add the tab
+            if current_index == -1:
+                self.template_tab_widget.addTab(new_tab, tab_name)
+                self.template_tab_widget.setCurrentIndex(0)
+            else:
+                self.template_tab_widget.removeTab(current_index)
+                self.template_tab_widget.insertTab(current_index, new_tab, tab_name)
+                self.template_tab_widget.setCurrentIndex(current_index)
+            
+            print(f"Loaded {health_status} heart widget successfully")
+            
+        except Exception as e:
+            print(f"Error loading {health_status} heart widget:", str(e))
+            QMessageBox.critical(self, "Error", f"Could not load result widget: {str(e)}")
+    
+    def clear_inputs(self):
+        """Clear all input fields (optional helper method)"""
+        self.age_input.clear()
+        self.stationary_bpm_input.clear()
+        self.running_bpm_input.clear()
+        self.selected_gender = None
+        self.male_button.setStyleSheet("")
+        self.female_button.setStyleSheet("")
+'''
 
+import json
+import os
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QLineEdit, QTabWidget, QWidget
+from PyQt5 import uic
+
+class HeartHealthSectionWindow(QMainWindow):
+    
+    def __init__(self):
+        super(HeartHealthSectionWindow, self).__init__()
+        uic.loadUi("R.H_Fitness_h_h_window.ui", self)
+
+        # UI Elements
+        self.gender = None
+        self.male_btn = self.findChild(QPushButton, "male_btn")
+        self.female_btn = self.findChild(QPushButton, "female_btn")
+        self.enter_btn = self.findChild(QPushButton, "enter_btn")
+
+        self.age_input = self.findChild(QLineEdit, "age_input")
+        self.bpm_stationary_input = self.findChild(QLineEdit, "bpm_stationary_input")
+        self.bpm_running_input = self.findChild(QLineEdit, "bpm_running_input")
+
+        self.template_tab_widget = self.findChild(QTabWidget, "template_h_h_tab_widget")
+
+        # Signals
+        self.male_btn.clicked.connect(lambda: self.select_gender("male"))
+        self.female_btn.clicked.connect(lambda: self.select_gender("female"))
+        self.enter_btn.clicked.connect(self.evaluate_heart_health)
+
+    def select_gender(self, gender):
+        self.gender = gender
+        print(f"Gender selected: {gender}")
+
+    def evaluate_heart_health(self):
+        try:
+            # Validate gender
+            if self.gender not in ["male", "female"]:
+                print("Please select a gender.")
+                return
+
+            # Get inputs
+            age = int(self.age_input.text())
+            bpm_stationary = int(self.bpm_stationary_input.text())
+            bpm_running = int(self.bpm_running_input.text())
+
+            # Save user input
+            user_data = {
+                "gender": self.gender,
+                "age": age,
+                "bpm_stationary": bpm_stationary,
+                "bpm_running": bpm_running
+            }
+            with open("heart_health_data.json", "w") as f:
+                json.dump(user_data, f, indent=4)
+
+            # Load heart health ranges
+            with open("heart_health_calculation.json", "r") as f:
+                health_data = json.load(f)
+
+            # Find matching age range
+            age_band_data = None
+            for band in health_data[self.gender]:
+                age_range = band["age_range"]  # e.g., "18-25"
+                min_age, max_age = map(int, age_range.split("-"))
+                if min_age <= age <= max_age:
+                    age_band_data = band
+                    break
+
+            if not age_band_data:
+                print("Age out of supported range.")
+                return
+
+            # Compare against ranges
+            s_range = age_band_data["bpm_stationary"]
+            r_range = age_band_data["bpm_running"]
+
+            # Simple comparison logic
+            status = "healthy"
+            if bpm_stationary < s_range[0] and bpm_running < r_range[0]:
+                status = "very_healthy"
+            elif bpm_stationary > s_range[1] or bpm_running > r_range[1]:
+                status = "unhealthy"
+
+            # Load correct tab based on status
+            ui_file = {
+                "very_healthy": "very_healthy_widget.ui",
+                "healthy": "healthy_widget.ui",
+                "unhealthy": "unhealthy_widget.ui"
+            }.get(status)
+
+            if ui_file:
+                self.load_result_tab(ui_file, status.replace("_", " ").title())
+
+        except Exception as e:
+            print("Error evaluating heart health:", str(e))
+
+    def load_result_tab(self, ui_filename, tab_name):
+        try:
+            new_tab = QWidget()
+            uic.loadUi(ui_filename, new_tab)
+
+            index = self.template_tab_widget.currentIndex()
+            if index == -1:
+                self.template_tab_widget.addTab(new_tab, tab_name)
+                self.template_tab_widget.setCurrentIndex(0)
+            else:
+                self.template_tab_widget.removeTab(index)
+                self.template_tab_widget.insertTab(index, new_tab, tab_name)
+                self.template_tab_widget.setCurrentIndex(index)
+        except Exception as e:
+            print(f"Error loading result tab: {str(e)}")
 
 
 class GymSectionWindow(QMainWindow):

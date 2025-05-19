@@ -36,7 +36,7 @@
      <string>Heart Health Section</string>
     </property>
    </widget>
-   <widget class="QTabWidget" name="template_h_h_tab_wdgt">
+   <widget class="QTabWidget" name="h_h_template_tab_widget">
     <property name="geometry">
      <rect>
       <x>770</x>
