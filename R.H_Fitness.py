@@ -8,7 +8,8 @@ import json
 import datetime
 import os
 import sys 
-from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtCore import QTimer
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QWidget,QPushButton, QLabel, QFrame, QTabWidget, QLineEdit, QWidget, QMessageBox
 from PyQt5 import uic
 
@@ -170,11 +171,16 @@ class HeartHealthSectionWindow(QMainWindow):
         self.h_h_female_button.clicked.connect(lambda: self.set_gender("Female"))
         self.enter_button.clicked.connect(self.enter_data)
 
+        
+
+
     def set_gender(self,gender):
         """Sets the selected gender and visually highlights the chosen button."""
         self.selected_gender = gender
         self.h_h_male_button.setStyleSheet("background-color: lightgray;" if gender == "Female" else "background-color: lightblue;")
         self.h_h_female_button.setStyleSheet("background-color: lightgray;" if gender == "Male" else "background-color: pink;")
+    
+    
 
     def process_data(self):
         """Loads user data, compares it to healthy BPM ranges, and displays the result."""
@@ -268,39 +274,20 @@ class HeartHealthSectionWindow(QMainWindow):
 
 
     def enter_data(self):
-    #Saves user data including selected gender.
+    # Visually show the click
+        self.original_enter_style = self.enter_button.styleSheet()
+        self.enter_button.setStyleSheet("background-color: lightgreen;")
+
+    # Check for gender selection
         if self.selected_gender is None:
             print("Please select a gender before entering data.")
+            # Still revert the color even if gender wasn't selected
+            QTimer.singleShot(2000, lambda: self.enter_button.setStyleSheet(self.original_enter_style))
             return
-    
+
+        # Gather data
         data = {
-                "gender": self.selected_gender,
-                "age": self.age_line_edit.text(),
-                "heart_rate_running": self.heart_rate_running_line_edit.text(),
-                "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
-        }
-
-    try:
-            file_path = "heart_health_data.json"
-            if os.path.exists(file_path):
-                with open(file_path, "r") as file:
-                    existing_data = json.load(file)
-            else:
-                existing_data = {}
-
-            existing_data.update(data)
-
-            with open(file_path, "w") as file:
-                json.dump(existing_data, file, indent=4)
-
-            print("Data entered successfully.")
-
-    except Exception as e:
-            print(f"Error saving data: {e}")
- 
- 
-    def enter_data(self):
-        data = {
+            "gender": self.selected_gender,
             "age": self.age_line_edit.text(),
             "heart_rate_running": self.heart_rate_running_line_edit.text(),
             "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
@@ -324,6 +311,11 @@ class HeartHealthSectionWindow(QMainWindow):
         except Exception as e:
             print(f"Error saving data: {e}")
 
+        # ✅ Always revert the button color, regardless of save result
+        QTimer.singleShot(2000, lambda: self.enter_button.setStyleSheet(self.original_enter_style))
+
+ 
+    
     def process_data(self):
         """Loads user data, compares it to healthy BPM ranges, and updates the tab widget accordingly."""
         if self.selected_gender is None:
@@ -373,14 +365,14 @@ class HeartHealthSectionWindow(QMainWindow):
             uic.loadUi(ui_filename, new_tab)
 
             # Replace the current tab with the new tab
-            current_index = self.template_h_h_tab_wdgt.currentIndex()  
+            current_index = self.h_template_tab_widget.currentIndex()  
             if current_index == -1:
-                self.template_h_h_tab_wdgt.addTab(new_tab, "Heart Health Result")
-                self.template_h_h_tab_wdgt.setCurrentIndex(0)
+                self.h_template_tab_widget.addTab(new_tab, "Heart Health Result")
+                self.h_template_tab_widget.setCurrentIndex(0)
             else:
-                self.template_h_h_tab_wdgt.removeTab(current_index)
-                self.template_h_h_tab_wdgt.insertTab(current_index, new_tab, "Heart Health Result")
-                self.template_h_h_tab_wdgt.setCurrentIndex(current_index)
+                self.h_template_tab_widget.removeTab(current_index)
+                self.h_template_tab_widget.insertTab(current_index, new_tab, "Heart Health Result")
+                self.h_template_tab_widget.setCurrentIndex(current_index)
 
         except Exception as e:
             print(f"Error loading heart health result tab: {e}")
@@ -554,22 +546,6 @@ class HeartHealthSectionWindow(QMainWindow):
         except Exception as e:
             QMessageBox.critical(self, "Error", f"An error occurred: {str(e)}")
 
-
-    def load_result_tab(self, ui_filename, tab_name):
-            try:
-                new_tab = QWidget()
-                uic.loadUi(ui_filename, new_tab)
-
-                index = self.h_template_tab_widget.currentIndex()
-                if index == -1:
-                    self.h_template_tab_widget.addTab(new_tab, tab_name)
-                    self.h_template_tab_widget.setCurrentIndex(0)
-                else:
-                    self.h_template_tab_widget.removeTab(index)
-                    self.h_template_tab_widget.insertTab(index, new_tab, tab_name)
-                    self.h_template_tab_widget.setCurrentIndex(index)
-            except Exception as e:
-                print(f"Error loading result tab: {str(e)}")
 
 
 print(os.path.exists("shoulders_tab_widget.ui")) 

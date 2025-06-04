@@ -1,6 +1,6 @@
 {
     "gender": "Male",
     "age": "20",
-    "heart_rate_running": "150",
-    "heart_rate_stationary": "70"
+    "heart_rate_running": "3",
+    "heart_rate_stationary": "1"
 }
