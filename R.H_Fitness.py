@@ -173,7 +173,6 @@ class HeartHealthSectionWindow(QMainWindow):
 
         
 
-
     def set_gender(self,gender):
         """Sets the selected gender and visually highlights the chosen button."""
         self.selected_gender = gender
@@ -188,17 +187,15 @@ class HeartHealthSectionWindow(QMainWindow):
             self.result_label.setText("Please select a gender before proceeding.")
             return
 
-     # Gather user input
+        # Gather user input
         user_data = {
             "gender": self.selected_gender,
             "age": self.age_line_edit.text(),
-            "weight": self.weight_line_edit.text(),
-            "height": self.height_line_edit.text(),
             "heart_rate_running": self.heart_rate_running_line_edit.text(),
             "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
         }
 
-     # Validate input
+        # Validate input
         try:
             user_data["age"] = int(user_data["age"])
             user_data["heart_rate_running"] = int(user_data["heart_rate_running"])
@@ -221,7 +218,7 @@ class HeartHealthSectionWindow(QMainWindow):
                 json.dump(data, file, indent=4)
         except Exception as e:
             self.result_label.setText(f"Error saving data: {e}")
-    '''
+    
     def evaluate_heart_health(self, user_data):
         """Compares user's heart rate against healthy BPM ranges and returns the result."""
         file_path = "heart_health_calculation.json"
@@ -270,7 +267,7 @@ class HeartHealthSectionWindow(QMainWindow):
 
         except Exception as e:
             return f"Error processing data: {e}"
-    '''
+    
 
 
     def enter_data(self):
@@ -551,9 +548,8 @@ class HeartHealthSectionWindow(QMainWindow):
 print(os.path.exists("shoulders_tab_widget.ui")) 
 
 
-
-
 '''
+
 class HeartHealthSectionWindow(QMainWindow):
     def __init__(self):
         super(HeartHealthSectionWindow, self).__init__()
@@ -578,6 +574,7 @@ class HeartHealthSectionWindow(QMainWindow):
         self.selected_gender = gender
         self.h_h_male_button.setStyleSheet("background-color: lightgray;" if gender == "Female" else "background-color: lightblue;")
         self.h_h_female_button.setStyleSheet("background-color: lightgray;" if gender == "Male" else "background-color: pink;")
+    
 
     def process_data(self):
         if self.selected_gender is None:
@@ -592,7 +589,7 @@ class HeartHealthSectionWindow(QMainWindow):
         }
 
         try:
-            user_data["age"] = int(user_data["age"])
+            user_data["age"] = int(user_data["age"]) 
             user_data["heart_rate_running"] = int(user_data["heart_rate_running"])
             user_data["heart_rate_stationary"] = int(user_data["heart_rate_stationary"])
         except ValueError:
@@ -610,7 +607,7 @@ class HeartHealthSectionWindow(QMainWindow):
                 json.dump(data, file, indent=4)
         except Exception as e:
             self.result_label.setText(f"Error saving data: {e}")
-
+    
     def evaluate_heart_health(self, user_data):
         file_path = "heart_health_calculation.json"
         if not os.path.exists(file_path):
@@ -630,8 +627,8 @@ class HeartHealthSectionWindow(QMainWindow):
                 if min_age <= age <= max_age:
                     healthy_range = values
                     break
-            else:
-                return "error"
+                else:
+                    return "error"
 
             min_bpm, max_bpm = healthy_range["stationary"]
             min_run_bpm, max_run_bpm = healthy_range["running"]
@@ -645,6 +642,7 @@ class HeartHealthSectionWindow(QMainWindow):
 
         except Exception as e:
             return "error"
+    
 
     def load_heart_health_tab(self, result_key):
         tab_mapping = {
@@ -668,8 +666,40 @@ class HeartHealthSectionWindow(QMainWindow):
         except Exception as e:
             self.result_label.setText(f"Error loading heart health tab: {e}")
 
-''' 
 
+
+#  This below is from gym section and am trying to make it work with heart health
+
+    def load_tab(self, ui_filename, tab_name):
+        try:
+            # Load the requested tab UI as a QWidget
+            new_tab = QWidget()
+            uic.loadUi(ui_filename, new_tab)
+
+            # Ensure that template_tab_widget exists and is a QTabWidget
+            if not isinstance(self.h_h_template_tab_widget, QTabWidget):
+                print("Error: h_h_template_tab_widget is not a QTabWidget!")
+                return
+
+            # Get the index of the current tab (assuming it's the one to replace)
+            current_index = self.h_h_template_tab_widget.currentIndex()
+
+            # If there are no tabs, just add the new tab
+            if current_index == -1:
+                self.h_h_template_tab_widget.addTab(new_tab, tab_name)
+                self.h_h_template_tab_widget.setCurrentIndex(0)  # Focus on the new tab
+            else:
+                # Replace the current tab with the new tab
+                self.h_h_template_tab_widget.removeTab(current_index)
+                self.h_h_template_tab_widget.insertTab(current_index, new_tab, tab_name)
+                self.h_h_template_tab_widget.setCurrentIndex(current_index)  # Keep focus on the new tab
+
+        except Exception as e:
+            print(f"Error loading {tab_name} tab:", str(e))
+'''
+
+
+# problem deosnt work down below
 '''
 class HeartHealthSectionWindow(QMainWindow):
     
@@ -817,8 +847,11 @@ class HeartHealthSectionWindow(QMainWindow):
 
         except Exception as e:
             print(f"Error loading tab UI: {e}")
+
 '''
-''' claude
+
+# problem down below - doesnt work
+'''
 class HeartHealthSectionWindow(QMainWindow):
     def __init__(self):
         super(HeartHealthSectionWindow, self).__init__()
@@ -1055,6 +1088,8 @@ class HeartHealthSectionWindow(QMainWindow):
         self.selected_gender = None
         self.male_button.setStyleSheet("")
         self.female_button.setStyleSheet("")
+
+        
 '''
 '''
 import json
@@ -1217,10 +1252,7 @@ class GymSectionWindow(QMainWindow):
         self.hamstrings_button.clicked.connect(lambda: self.load_tab("hamstrings_widget.ui", "hamstrings")) 
         # Example for additional buttons:
     
-    
-        
-    
-
+            
 # this whole func is ai, figure out what it did 
 
     def load_tab(self, ui_filename, tab_name):
