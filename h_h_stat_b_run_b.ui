@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>h_h_stat_b_run_g_widget</class>
- <widget class="QWidget" name="h_h_stat_b_run_g_widget">
+ <class>h_h_stat_b_run_b_widget</class>
+ <widget class="QWidget" name="h_h_stat_b_run_b_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,12 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string/>
+   <string>Form</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QTabWidget" name="h_h_stat_b_run_g_tab_widget">
+  <widget class="QTabWidget" name="h_h_stat_b_run_b_tab_widget">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -25,9 +25,6 @@
      <height>700</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
-   </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
@@ -35,34 +32,12 @@
     <attribute name="title">
      <string>Results</string>
     </attribute>
-    <widget class="QLabel" name="h_h_stat_b_run_g_img_lbl">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>100</y>
-       <width>271</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../Pictures/un_healthy_heart_image.png</pixmap>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="h_h_stat_b_run_g_lbl">
+    <widget class="QLabel" name="h_h_stat_b_run_b_title_lbl">
      <property name="geometry">
       <rect>
        <x>200</x>
        <y>20</y>
-       <width>251</width>
+       <width>261</width>
        <height>61</height>
       </rect>
      </property>
@@ -82,22 +57,20 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="h_h_stat_b_run_g_msg_lbl">
+    <widget class="QLabel" name="h_h_stat_b_run_b_img_lbl">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>390</y>
-       <width>511</width>
-       <height>131</height>
+       <x>190</x>
+       <y>76</y>
+       <width>291</width>
+       <height>261</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
      <property name="text">
-      <string>Your heart isn't as healthy as it could be. Your heart rate while running is in a good range, but your heart rate while stationary is not. This can be due to a multitude of factors. Consider improving lifestyle habits.</string>
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/h_h_stat_b_run_b.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -106,13 +79,37 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="h_h_stat_b_run_g_disclaimer_lbl">
+    <widget class="QLabel" name="h_h_stat_b_run_b_msg_lbl">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>540</y>
-       <width>511</width>
-       <height>131</height>
+       <y>365</y>
+       <width>521</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Your heart is not healthy. Your heart rate while stationary is not in a good range, and your heart rate while running is not in a good range. This can be due to a multitude of factors but consider running more often to strengthen your heart, possibly improving lifestyle habits, but consult a doctor for a more accurate diagnosis. </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="h_h_stat_b_run_b_disclaimer_lbl">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>554</y>
+       <width>510</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">

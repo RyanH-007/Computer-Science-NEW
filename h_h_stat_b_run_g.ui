@@ -97,7 +97,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Your heart isn't as healthy as it could be. Your heart rate while running is in a good range, but your heart rate while stationary is not. This can be due to a multitude of factors. Consider improving lifestyle habits.</string>
+      <string>Your heart isn't as healthy as it could be. Your heart rate while running is in a good range, but your heart rate while stationary is not. This can be due to a multitude of factors.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -121,7 +121,7 @@
       </font>
      </property>
      <property name="text">
-      <string>* Disclaimer - this calculation is not 100% accurate due to multiple missing factors e.g. lifestyle habits, that can affect the heart. For a more accurate result, speak to your doctor.</string>
+      <string>* Disclaimer - this calculation is not 100% accurate due to multiple missing factors e.g. lifestyle habbits, that can affect the heart. For a more accurate result, speak to your doctor.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

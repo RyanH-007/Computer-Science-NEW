@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>h_h_stat_b_run_g_widget</class>
- <widget class="QWidget" name="h_h_stat_b_run_g_widget">
+ <class>h_h_widget_stat_g_run_g</class>
+ <widget class="QWidget" name="h_h_widget_stat_g_run_g">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,13 +16,13 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QTabWidget" name="h_h_stat_b_run_g_tab_widget">
+  <widget class="QTabWidget" name="h_h_widget_stat_g_run_g_tab_widget">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>-1</y>
      <width>671</width>
-     <height>700</height>
+     <height>701</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -35,34 +35,12 @@
     <attribute name="title">
      <string>Results</string>
     </attribute>
-    <widget class="QLabel" name="h_h_stat_b_run_g_img_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_g_title_lbl">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>100</y>
-       <width>271</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../Pictures/un_healthy_heart_image.png</pixmap>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="h_h_stat_b_run_g_lbl">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>20</y>
-       <width>251</width>
+       <x>210</x>
+       <y>25</y>
+       <width>261</width>
        <height>61</height>
       </rect>
      </property>
@@ -82,22 +60,20 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="h_h_stat_b_run_g_msg_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_g_img_lbl">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>390</y>
-       <width>511</width>
-       <height>131</height>
+       <x>210</x>
+       <y>90</y>
+       <width>254</width>
+       <height>231</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
      <property name="text">
-      <string>Your heart isn't as healthy as it could be. Your heart rate while running is in a good range, but your heart rate while stationary is not. This can be due to a multitude of factors. Consider improving lifestyle habits.</string>
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Pictures/very_healthy_heart_image.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -106,11 +82,35 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="h_h_stat_b_run_g_disclaimer_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_g_msg_lbl">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>540</y>
+       <x>70</x>
+       <y>380</y>
+       <width>511</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Your heart is healthy !!! Your heart rate while stationary and while running are both healhty. Keep up what you are doing !</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="h_h_stat_g_run_g_disclaimer_lbl">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>510</y>
        <width>511</width>
        <height>131</height>
       </rect>
@@ -121,7 +121,7 @@
       </font>
      </property>
      <property name="text">
-      <string>* Disclaimer - this calculation is not 100% accurate due to multiple missing factors e.g. lifestyle habits, that can affect the heart. For a more accurate result, speak to your doctor.</string>
+      <string>* Disclaimer - this calculation is not 100% accurate due to multiple missing factors e.g. lifestyle habbits, that can affect the heart. For a more accurate result, speak to your doctor.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

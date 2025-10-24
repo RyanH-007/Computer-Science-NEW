@@ -1,4 +1,6 @@
 
+
+'''
 class car():
 
     def __init__(self,reg,make,model):
@@ -22,3 +24,23 @@ print(my_car.make)
 
 
 #print(my_tuple)
+'''
+'''
+eyecolour = (0,5,75)
+
+eyecolour(0) = 5
+
+print(eyecolour)
+'''
+'''
+scorelist = []
+score = ("John", 5, scorelist[])
+'''
+
+# Creating a hash table
+
+student_names = [None]*10
+
+def hash_name(name):
+
+    

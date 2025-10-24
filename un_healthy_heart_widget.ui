@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>un_healthy_heart_widget</class>
- <widget class="QWidget" name="un_healthy_heart_widget">
+ <class>h_h_stat_g_run_b_widget</class>
+ <widget class="QWidget" name="h_h_stat_g_run_b_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QTabWidget" name="un_healthy_heart_tab_widget">
+  <widget class="QTabWidget" name="h_h_stat_g_run_b_tab_widget">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -32,7 +32,7 @@
     <attribute name="title">
      <string>Results</string>
     </attribute>
-    <widget class="QLabel" name="un_healthy_heart_title_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_b_title_lbl">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -57,7 +57,7 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="un_healthy_heart_img_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_b_img_lbl">
      <property name="geometry">
       <rect>
        <x>190</x>
@@ -79,13 +79,13 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="un_healthy_heart_msg_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_b_msg_lbl">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>360</y>
-       <width>511</width>
-       <height>91</height>
+       <y>350</y>
+       <width>521</width>
+       <height>121</height>
       </rect>
      </property>
      <property name="font">
@@ -94,7 +94,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Your heart isn't as healthy as it could be. This can be due to a multitude of factors but consider running more often to strengthen your heart. </string>
+      <string>Your heart isn't as healthy as it could be. Your heart rate while stationary is in a good range, but your heart rate while running is not. This can be due to a multitude of factors but consider running more often to strengthen your heart. </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -103,11 +103,11 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="un_healthy_heart_disclaimer_lbl">
+    <widget class="QLabel" name="h_h_stat_g_run_b_disclaimer_lbl">
      <property name="geometry">
       <rect>
-       <x>61</x>
-       <y>480</y>
+       <x>60</x>
+       <y>520</y>
        <width>510</width>
        <height>61</height>
       </rect>
@@ -118,7 +118,7 @@
       </font>
      </property>
      <property name="text">
-      <string>* Disclaimer - this calculation is not 100% accurate due to multiple missing factors e.g. lifestyle habbits, that can affect the heart. For a more accurate result, speak to your doctor.</string>
+      <string>* Disclaimer - this calculation is not 100% accurate due to multiple missing factors e.g. lifestyle habits, that can affect the heart. For a more accurate result, speak to your doctor.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

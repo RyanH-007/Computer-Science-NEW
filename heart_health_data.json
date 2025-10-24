@@ -1,6 +1,6 @@
 {
-    "gender": "Female",
-    "age": "",
-    "heart_rate_running": "",
-    "heart_rate_stationary": ""
+    "gender": "Male",
+    "age": "1",
+    "heart_rate_stationary": "1",
+    "heart_rate_running": "1"
 }

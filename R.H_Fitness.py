@@ -172,7 +172,7 @@ class HeartHealthSectionWindow(QMainWindow):
         self.enter_button.clicked.connect(self.enter_data)
 
         
-
+    # Works - checked 
     def set_gender(self,gender):
         """Sets the selected gender and visually highlights the chosen button."""
         self.selected_gender = gender
@@ -183,18 +183,26 @@ class HeartHealthSectionWindow(QMainWindow):
 
     def process_data(self):
         """Loads user data, compares it to healthy BPM ranges, and displays the result."""
+
+        # Dont think I need this below 
+        '''
         if self.selected_gender is None:
             self.result_label.setText("Please select a gender before proceeding.")
             return
+        '''
+
+        # This Works - checked
 
         # Gather user input
         user_data = {
             "gender": self.selected_gender,
             "age": self.age_line_edit.text(),
-            "heart_rate_running": self.heart_rate_running_line_edit.text(),
             "heart_rate_stationary": self.heart_rate_stationary_line_edit.text(),
+            "heart_rate_running": self.heart_rate_running_line_edit.text(),
         }
 
+        # Don't think this works
+        '''
         # Validate input
         try:
             user_data["age"] = int(user_data["age"])
@@ -205,11 +213,13 @@ class HeartHealthSectionWindow(QMainWindow):
             return
         # Save user data
         self.save_user_data(user_data)
-
+        '''
         # Load healthy BPM ranges and compare
         result = self.evaluate_heart_health(user_data)
         self.result_label.setText(result)
 
+    # Not needed below, as far as I am aware - already have code further up that saves the user's biometric data
+    '''
     def save_user_data(self, data):
         """Saves user biometric data into JSON file."""
         try:
@@ -218,7 +228,9 @@ class HeartHealthSectionWindow(QMainWindow):
                 json.dump(data, file, indent=4)
         except Exception as e:
             self.result_label.setText(f"Error saving data: {e}")
-    
+    '''
+    # stopped here 
+    *
     def evaluate_heart_health(self, user_data):
         """Compares user's heart rate against healthy BPM ranges and returns the result."""
         file_path = "heart_health_calculation.json"
