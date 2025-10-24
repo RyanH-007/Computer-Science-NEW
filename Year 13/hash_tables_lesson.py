@@ -60,7 +60,7 @@ def main():
             print("Try again")
         else:
             hash_position, rehashes = hash_name(name)
-            #print(hash_position, rehashes)
+            print(hash_position, rehashes)
 
             if student_names[hash_position] == None:
                 student_names[hash_position] = name
